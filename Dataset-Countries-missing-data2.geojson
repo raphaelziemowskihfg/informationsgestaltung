@@ -1,0 +1,2471 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.03973078680701,
+          12.699186865507775
+        ]
+      },
+      "properties": {
+        "countryName": "Cambodia",
+        "areaSold": 848256.72,
+        "areaBought": 275,
+        "numberSold": 97,
+        "numberBought": 2,
+        "mostDealsWith": "Malaysia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.43212562608613,
+          23.673728665121
+        ]
+      },
+      "properties": {
+        "countryName": "Bangladesh",
+        "areaSold": 669.4200000000001,
+        "areaBought": 35314,
+        "numberSold": 3,
+        "numberBought": 4,
+        "mostDealsWith": "China"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          81.17300408530181,
+          23.586300567746722
+        ]
+      },
+      "properties": {
+        "countryName": "India",
+        "areaSold": 171520,
+        "areaBought": 1631759.41,
+        "numberSold": 14,
+        "numberBought": 20,
+        "mostDealsWith": "United Kingdom of Great Britain and Northern Ireland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.91338832758704,
+          16.517347170839393
+        ]
+      },
+      "properties": {
+        "countryName": "Vietnam",
+        "areaSold": 512765.8,
+        "areaBought": 327557,
+        "numberSold": 54,
+        "numberBought": 25,
+        "mostDealsWith": "Japan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.63330303992869,
+          3.6716608556387857
+        ]
+      },
+      "properties": {
+        "countryName": "Malaysia",
+        "areaSold": 444452,
+        "areaBought": 92552.42,
+        "numberSold": 9,
+        "numberBought": 8,
+        "mostDealsWith": "Syrian Arab Republic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.286928794895285,
+          46.73678128684938
+        ]
+      },
+      "properties": {
+        "countryName": "Switzerland",
+        "areaSold": 0,
+        "areaBought": 817314.5299999999,
+        "numberSold": 0,
+        "numberBought": 32,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.554136426128487,
+          52.134054128923886
+        ]
+      },
+      "properties": {
+        "countryName": "Netherlands",
+        "areaSold": 0,
+        "areaBought": 257778.41999999998,
+        "numberSold": 0,
+        "numberBought": 18,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.08675116214552,
+          13.66222784745538
+        ]
+      },
+      "properties": {
+        "countryName": "Thailand",
+        "areaSold": 32013,
+        "areaBought": 924747.5,
+        "numberSold": 2,
+        "numberBought": 27,
+        "mostDealsWith": "Japan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.96538246847302,
+          0.15591979959037652
+        ]
+      },
+      "properties": {
+        "countryName": "Indonesia",
+        "areaSold": 5577133.95,
+        "areaBought": 82405,
+        "numberSold": 239,
+        "numberBought": 5,
+        "mostDealsWith": "Singapore"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.69113855849604,
+          38.07325481105728
+        ]
+      },
+      "properties": {
+        "countryName": "China",
+        "areaSold": 461265,
+        "areaBought": 14238455.919999998,
+        "numberSold": 18,
+        "numberBought": 237,
+        "mostDealsWith": "Singapore"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.3759193479301,
+          47.641465195176835
+        ]
+      },
+      "properties": {
+        "countryName": "Kazakhstan",
+        "areaSold": 24233,
+        "areaBought": 376523,
+        "numberSold": 4,
+        "numberBought": 10,
+        "mostDealsWith": "Japan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          137.46934234351835,
+          36.76738832597829
+        ]
+      },
+      "properties": {
+        "countryName": "Japan",
+        "areaSold": 0,
+        "areaBought": 7960649.97,
+        "numberSold": 0,
+        "numberBought": 80,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.76375899026448,
+          18.117282736873282
+        ]
+      },
+      "properties": {
+        "countryName": "Lao PDR",
+        "areaSold": "1807161.37Jan 5412500100000559807640500001070080010044000498293002000969150511084898463000",
+        "areaBought": 0,
+        "numberSold": 128,
+        "numberBought": 0,
+        "mostDealsWith": "Thailand"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.3987360327455,
+          47.08644454604851
+        ]
+      },
+      "properties": {
+        "countryName": "Mongolia",
+        "areaSold": 235655,
+        "areaBought": 10020,
+        "numberSold": 13,
+        "numberBought": 1,
+        "mostDealsWith": "China"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.5117323139514,
+          35.09751106058316
+        ]
+      },
+      "properties": {
+        "countryName": "Syrian Arab Republic",
+        "areaSold": 0,
+        "areaBought": 2342074,
+        "numberSold": 0,
+        "numberBought": 38,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          97.08892285397344,
+          19.901227931399873
+        ]
+      },
+      "properties": {
+        "countryName": "Myanmar",
+        "areaSold": 391037.36,
+        "areaBought": 0,
+        "numberSold": 28,
+        "numberBought": 1,
+        "mostDealsWith": "China"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.08835090769651,
+          30.116188371410882
+        ]
+      },
+      "properties": {
+        "countryName": "Pakistan",
+        "areaSold": 423102,
+        "areaBought": 0,
+        "numberSold": 9,
+        "numberBought": 0,
+        "mostDealsWith": "Saudi Arabia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          54.27920525789581,
+          24.18250292309135
+        ]
+      },
+      "properties": {
+        "countryName": "United Arab Emirates",
+        "areaSold": 0,
+        "areaBought": 511581,
+        "numberSold": 0,
+        "numberBought": 24,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.600958178225596,
+          24.136038144757897
+        ]
+      },
+      "properties": {
+        "countryName": "Saudi Arabia",
+        "areaSold": 0,
+        "areaBought": 880807,
+        "numberSold": 0,
+        "numberBought": 12,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.82208941416745,
+          15.586542251094242
+        ]
+      },
+      "properties": {
+        "countryName": "Philippines",
+        "areaSold": 1448373.6700000004,
+        "areaBought": 0,
+        "numberSold": 50,
+        "numberBought": 0,
+        "mostDealsWith": "China"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.76224551357649,
+          36.402386712544114
+        ]
+      },
+      "properties": {
+        "countryName": "Republic of Korea",
+        "areaSold": 0,
+        "areaBought": 624866,
+        "numberSold": 0,
+        "numberBought": 16,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.81025757634053,
+          1.3528251890006349
+        ]
+      },
+      "properties": {
+        "countryName": "Singapore",
+        "areaSold": 0,
+        "areaBought": 436560,
+        "numberSold": 0,
+        "numberBought": 13,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.56886764076691,
+          38.93207363123396
+        ]
+      },
+      "properties": {
+        "countryName": "T\u00fcrkiye",
+        "areaSold": 58000,
+        "areaBought": 654543,
+        "numberSold": 3,
+        "numberBought": 21,
+        "mostDealsWith": "Netherlands"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.6704990698032,
+          59.039434214106194
+        ]
+      },
+      "properties": {
+        "countryName": "Russian Federation",
+        "areaSold": 26302790.259999998,
+        "areaBought": 171905,
+        "numberSold": 331,
+        "numberBought": 19,
+        "mostDealsWith": "China"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.852943909329258,
+          53.97844735080214
+        ]
+      },
+      "properties": {
+        "countryName": "United Kingdom of Great Britain and Northern Ireland",
+        "areaSold": 0,
+        "areaBought": 160725.90000000002,
+        "numberSold": 0,
+        "numberBought": 25,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.53238503843076,
+          -35.697270518120085
+        ]
+      },
+      "properties": {
+        "countryName": "Argentina",
+        "areaSold": 3332816.32,
+        "areaBought": 0,
+        "numberSold": 116,
+        "numberBought": 0,
+        "mostDealsWith": "India"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.27377208442636,
+          48.657532515563794
+        ]
+      },
+      "properties": {
+        "countryName": "Ukraine",
+        "areaSold": 4648087.42,
+        "areaBought": 14949,
+        "numberSold": 285,
+        "numberBought": 2,
+        "mostDealsWith": "Switzerland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.45209597511206,
+          -16.7312488393574
+        ]
+      },
+      "properties": {
+        "countryName": "Bolivia",
+        "areaSold": 313493,
+        "areaBought": 0,
+        "numberSold": 14,
+        "numberBought": 0,
+        "mostDealsWith": "China, Hong Kong Special Administrative Region"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.169879,
+          22.323394
+        ]
+      },
+      "properties": {
+        "countryName": "China, Hong Kong Special Administrative Region",
+        "areaSold": 0,
+        "areaBought": 72889.22,
+        "numberSold": 0,
+        "numberBought": 10,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.355206608256424,
+          -11.524630416426652
+        ]
+      },
+      "properties": {
+        "countryName": "Brazil",
+        "areaSold": 4868375.64,
+        "areaBought": 520136.88,
+        "numberSold": 163,
+        "numberBought": 5,
+        "mostDealsWith": "Chile"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.33161660829639,
+          38.8208089190304
+        ]
+      },
+      "properties": {
+        "countryName": "United States of America",
+        "areaSold": 0,
+        "areaBought": 1557531.97,
+        "numberSold": 0,
+        "numberBought": 46,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.6445066243485,
+          4.187753877352739
+        ]
+      },
+      "properties": {
+        "countryName": "Colombia",
+        "areaSold": 1215352.19,
+        "areaBought": 192255,
+        "numberSold": 40,
+        "numberBought": 1,
+        "mostDealsWith": "Cayman Islands"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.75252746489084,
+          -28.55361930679731
+        ]
+      },
+      "properties": {
+        "countryName": "South Africa",
+        "areaSold": 15785,
+        "areaBought": 368454,
+        "numberSold": 17,
+        "numberBought": 13,
+        "mostDealsWith": "Germany"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.91352612754667,
+          4.68211981385056
+        ]
+      },
+      "properties": {
+        "countryName": "Guyana",
+        "areaSold": 1384074.88,
+        "areaBought": 0,
+        "numberSold": 7,
+        "numberBought": 0,
+        "mostDealsWith": "India"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.41680517868062,
+          57.550480044655636
+        ]
+      },
+      "properties": {
+        "countryName": "Canada",
+        "areaSold": 0,
+        "areaBought": 271356,
+        "numberSold": 0,
+        "numberBought": 25,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.016088327669,
+          12.893566631930554
+        ]
+      },
+      "properties": {
+        "countryName": "Nicaragua",
+        "areaSold": 723476,
+        "areaBought": 0,
+        "numberSold": 27,
+        "numberBought": 0,
+        "mostDealsWith": "Colombia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.01919523458085,
+          -32.78195043831093
+        ]
+      },
+      "properties": {
+        "countryName": "Uruguay",
+        "areaSold": 1085363,
+        "areaBought": 18516,
+        "numberSold": 55,
+        "numberBought": 2,
+        "mostDealsWith": "Brazil"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.36492135985132,
+          7.148324760507107
+        ]
+      },
+      "properties": {
+        "countryName": "Venezuela, RB",
+        "areaSold": 60000,
+        "areaBought": 0,
+        "numberSold": 1,
+        "numberBought": 0,
+        "mostDealsWith": "China"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.378866534112234,
+          42.17986277737226
+        ]
+      },
+      "properties": {
+        "countryName": "Georgia",
+        "areaSold": 10839,
+        "areaBought": 173335,
+        "numberSold": 9,
+        "numberBought": 7,
+        "mostDealsWith": "Qatar"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.19794918743203,
+          25.318528486425386
+        ]
+      },
+      "properties": {
+        "countryName": "Qatar",
+        "areaSold": 0,
+        "areaBought": 8094,
+        "numberSold": 0,
+        "numberBought": 2,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.85677444395745,
+          44.02679870131969
+        ]
+      },
+      "properties": {
+        "countryName": "Serbia",
+        "areaSold": 259770.5,
+        "areaBought": 10554,
+        "numberSold": 48,
+        "numberBought": 4,
+        "mostDealsWith": "Russian Federation"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.855514311561286,
+          4.098723595920171
+        ]
+      },
+      "properties": {
+        "countryName": "Suriname",
+        "areaSold": 823,
+        "areaBought": 0,
+        "numberSold": 1,
+        "numberBought": 0,
+        "mostDealsWith": "Netherlands"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.83467240787538,
+          44.14415356126429
+        ]
+      },
+      "properties": {
+        "countryName": "Bosnia and Herzegovina",
+        "areaSold": 0,
+        "areaBought": 34000,
+        "numberSold": 0,
+        "numberBought": 1,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.094158201563292,
+          45.82454894397586
+        ]
+      },
+      "properties": {
+        "countryName": "Romania",
+        "areaSold": 636745,
+        "areaBought": 90170,
+        "numberSold": 73,
+        "numberBought": 3,
+        "mostDealsWith": "Lebanon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          54.237077001065444,
+          32.906023742890056
+        ]
+      },
+      "properties": {
+        "countryName": "Iran, Islamic Rep.",
+        "areaSold": 0,
+        "areaBought": 260306,
+        "numberSold": 0,
+        "numberBought": 3,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6516251409956983,
+          40.365008336683836
+        ]
+      },
+      "properties": {
+        "countryName": "Spain",
+        "areaSold": 0,
+        "areaBought": 98367,
+        "numberSold": 0,
+        "numberBought": 8,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.14428761482796,
+          8.439536749576892
+        ]
+      },
+      "properties": {
+        "countryName": "Panama",
+        "areaSold": 31544,
+        "areaBought": 9810,
+        "numberSold": 4,
+        "numberBought": 4,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.11416196781884,
+          -8.522717984240291
+        ]
+      },
+      "properties": {
+        "countryName": "Peru",
+        "areaSold": 15188758,
+        "areaBought": 59809,
+        "numberSold": 87,
+        "numberBought": 33,
+        "mostDealsWith": "Canada"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.571710194917734,
+          7.536779279421307
+        ]
+      },
+      "properties": {
+        "countryName": "C\u00f4te d'Ivoire",
+        "areaSold": 242567,
+        "areaBought": 0,
+        "numberSold": 22,
+        "numberBought": 0,
+        "mostDealsWith": "Mali"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.346399841781153,
+          17.168146208584837
+        ]
+      },
+      "properties": {
+        "countryName": "Mali",
+        "areaSold": 256072,
+        "areaBought": 0,
+        "numberSold": 19,
+        "numberBought": 1,
+        "mostDealsWith": "Libya"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.879732849491393,
+          -0.7294391595233845
+        ]
+      },
+      "properties": {
+        "countryName": "Congo, Rep.",
+        "areaSold": 2449265,
+        "areaBought": 410379,
+        "numberSold": 15,
+        "numberBought": 2,
+        "mostDealsWith": "Brazil"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.240135435012338,
+          26.60517034450628
+        ]
+      },
+      "properties": {
+        "countryName": "Egypt, Arab Rep.",
+        "areaSold": 129062.38,
+        "areaBought": 2183733,
+        "numberSold": 15,
+        "numberBought": 45,
+        "mostDealsWith": "United Arab Emirates"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.914902886544276,
+          8.729389557048396
+        ]
+      },
+      "properties": {
+        "countryName": "Ethiopia",
+        "areaSold": 819541.84,
+        "areaBought": 290,
+        "numberSold": 99,
+        "numberBought": 1,
+        "mostDealsWith": "United States of America"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.675010154696485,
+          50.6182138854095
+        ]
+      },
+      "properties": {
+        "countryName": "Belgium",
+        "areaSold": 0,
+        "areaBought": 35544,
+        "numberSold": 0,
+        "numberBought": 3,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.219233362526581,
+          7.94530467243628
+        ]
+      },
+      "properties": {
+        "countryName": "Ghana",
+        "areaSold": 574437.3,
+        "areaBought": 0,
+        "numberSold": 78,
+        "numberBought": 0,
+        "mostDealsWith": "United Kingdom of Great Britain and Northern Ireland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.763657166123137,
+          42.98201127614267
+        ]
+      },
+      "properties": {
+        "countryName": "Italy",
+        "areaSold": 0,
+        "areaBought": 739074,
+        "numberSold": 0,
+        "numberBought": 13,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.95309411262371,
+          0.6899182318376179
+        ]
+      },
+      "properties": {
+        "countryName": "Kenya",
+        "areaSold": 3716613.98,
+        "areaBought": 26878,
+        "numberSold": 35,
+        "numberBought": 3,
+        "mostDealsWith": "United Kingdom of Great Britain and Northern Ireland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9.258988935497618,
+          6.52012979398834
+        ]
+      },
+      "properties": {
+        "countryName": "Liberia",
+        "areaSold": 1764315.5,
+        "areaBought": 0,
+        "numberSold": 28,
+        "numberBought": 0,
+        "mostDealsWith": "China"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.147714845256194,
+          9.61029352034213
+        ]
+      },
+      "properties": {
+        "countryName": "Nigeria",
+        "areaSold": 588712,
+        "areaBought": 741611,
+        "numberSold": 33,
+        "numberBought": 4,
+        "mostDealsWith": "China"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.948474142398263,
+          6.294168487480992
+        ]
+      },
+      "properties": {
+        "countryName": "Cameroon",
+        "areaSold": 4221948.25,
+        "areaBought": 14005,
+        "numberSold": 77,
+        "numberBought": 2,
+        "mostDealsWith": "Italy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          46.68493466832544,
+          -19.04163612493041
+        ]
+      },
+      "properties": {
+        "countryName": "Madagascar",
+        "areaSold": 1318250,
+        "areaBought": 0,
+        "numberSold": 27,
+        "numberBought": 0,
+        "mostDealsWith": "Germany"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.426171427430804,
+          51.08304539800482
+        ]
+      },
+      "properties": {
+        "countryName": "Germany",
+        "areaSold": 0,
+        "areaBought": 926667.91,
+        "numberSold": 0,
+        "numberBought": 26,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.02277170916162,
+          -25.697337673983082
+        ]
+      },
+      "properties": {
+        "countryName": "Australia",
+        "areaSold": 0,
+        "areaBought": 613514.66,
+        "numberSold": 0,
+        "numberBought": 9,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.91133392454237,
+          27.202915771690794
+        ]
+      },
+      "properties": {
+        "countryName": "Libya",
+        "areaSold": 0,
+        "areaBought": 36612,
+        "numberSold": 0,
+        "numberBought": 2,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.208577031290176,
+          -17.525230309488748
+        ]
+      },
+      "properties": {
+        "countryName": "Mozambique",
+        "areaSold": 2186362,
+        "areaBought": 1386,
+        "numberSold": 108,
+        "numberBought": 1,
+        "mostDealsWith": "China"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10.986948848040218,
+          10.255986541378112
+        ]
+      },
+      "properties": {
+        "countryName": "Guinea",
+        "areaSold": 550515,
+        "areaBought": 21000,
+        "numberSold": 9,
+        "numberBought": 1,
+        "mostDealsWith": "Sweden"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10.495079045035716,
+          20.466731212820022
+        ]
+      },
+      "properties": {
+        "countryName": "Mauritania",
+        "areaSold": 47301,
+        "areaBought": 5000,
+        "numberSold": 6,
+        "numberBought": 1,
+        "mostDealsWith": "Saudi Arabia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.16451345845268,
+          -21.90858163281473
+        ]
+      },
+      "properties": {
+        "countryName": "Namibia",
+        "areaSold": 86639,
+        "areaBought": 0,
+        "numberSold": 10,
+        "numberBought": 0,
+        "mostDealsWith": "China"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.86863247002646,
+          17.08105392407292
+        ]
+      },
+      "properties": {
+        "countryName": "Niger",
+        "areaSold": 51500,
+        "areaBought": 0,
+        "numberSold": 3,
+        "numberBought": 0,
+        "mostDealsWith": "Egypt, Arab Rep."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.951458283594064,
+          15.67060230984256
+        ]
+      },
+      "properties": {
+        "countryName": "Sudan",
+        "areaSold": 648501,
+        "areaBought": 0,
+        "numberSold": 21,
+        "numberBought": 0,
+        "mostDealsWith": "South Sudan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -14.610875368352305,
+          14.228861491763402
+        ]
+      },
+      "properties": {
+        "countryName": "Senegal",
+        "areaSold": 779406.8,
+        "areaBought": 0,
+        "numberSold": 48,
+        "numberBought": 0,
+        "mostDealsWith": "France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.510685746082007,
+          -26.562540935608702
+        ]
+      },
+      "properties": {
+        "countryName": "Swaziland",
+        "areaSold": 35710,
+        "areaBought": 1600,
+        "numberSold": 6,
+        "numberBought": 1,
+        "mostDealsWith": "South Africa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.81832206060381,
+          -6.355794440041147
+        ]
+      },
+      "properties": {
+        "countryName": "Tanzania",
+        "areaSold": 312430.11,
+        "areaBought": 0,
+        "numberSold": 51,
+        "numberBought": 1,
+        "mostDealsWith": "China"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.34371768463123,
+          1.2821729218416205
+        ]
+      },
+      "properties": {
+        "countryName": "Uganda",
+        "areaSold": 159042.03,
+        "areaBought": 179999,
+        "numberSold": 38,
+        "numberBought": 1,
+        "mostDealsWith": "United Kingdom of Great Britain and Northern Ireland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.419827574282188,
+          -3.338629596207896
+        ]
+      },
+      "properties": {
+        "countryName": "Congo, Dem. Rep.",
+        "areaSold": 9065110,
+        "areaBought": 0,
+        "numberSold": 69,
+        "numberBought": 1,
+        "mostDealsWith": "United States of America"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.062431988004956,
+          62.73420986108448
+        ]
+      },
+      "properties": {
+        "countryName": "Sweden",
+        "areaSold": 0,
+        "areaBought": 147744,
+        "numberSold": 0,
+        "numberBought": 4,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.3851856901788,
+          7.657782041763295
+        ]
+      },
+      "properties": {
+        "countryName": "South Sudan",
+        "areaSold": 1966059,
+        "areaBought": 161874,
+        "numberSold": 5,
+        "numberBought": 1,
+        "mostDealsWith": "Uganda"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.75521363430896,
+          -13.162832953186246
+        ]
+      },
+      "properties": {
+        "countryName": "Zambia",
+        "areaSold": 798154.8,
+        "areaBought": 5012,
+        "numberSold": 56,
+        "numberBought": 1,
+        "mostDealsWith": "United Kingdom of Great Britain and Northern Ireland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.76863431739216,
+          -37.82938283049967
+        ]
+      },
+      "properties": {
+        "countryName": "Chile",
+        "areaSold": 159963,
+        "areaBought": 238000,
+        "numberSold": 24,
+        "numberBought": 2,
+        "mostDealsWith": "United States of America"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.8348942994695,
+          -7.156912819152135
+        ]
+      },
+      "properties": {
+        "countryName": "Papua New Guinea",
+        "areaSold": 1995658.69,
+        "areaBought": 0,
+        "numberSold": 31,
+        "numberBought": 0,
+        "mostDealsWith": "Republic of Korea"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.1940236627886227,
+          46.6423682169416
+        ]
+      },
+      "properties": {
+        "countryName": "France",
+        "areaSold": 0,
+        "areaBought": 723725.19,
+        "numberSold": 0,
+        "numberBought": 22,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.66931169770622,
+          7.696630939329944
+        ]
+      },
+      "properties": {
+        "countryName": "Sri Lanka",
+        "areaSold": 18373.41,
+        "areaBought": 0,
+        "numberSold": 5,
+        "numberBought": 0,
+        "mostDealsWith": "India"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.55399731630118,
+          23.87436068093592
+        ]
+      },
+      "properties": {
+        "countryName": "Mexico",
+        "areaSold": 454561,
+        "areaBought": 66997,
+        "numberSold": 31,
+        "numberBought": 33,
+        "mostDealsWith": "Canada"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.717829640720844,
+          -18.92700121981475
+        ]
+      },
+      "properties": {
+        "countryName": "Zimbabwe",
+        "areaSold": 381994,
+        "areaBought": 0,
+        "numberSold": 18,
+        "numberBought": 0,
+        "mostDealsWith": "United States of America"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.38906357428651,
+          -23.42190559259428
+        ]
+      },
+      "properties": {
+        "countryName": "Paraguay",
+        "areaSold": 879111,
+        "areaBought": 0,
+        "numberSold": 16,
+        "numberBought": 0,
+        "mostDealsWith": "Republic of Korea"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.62406519257699,
+          18.42195819619707
+        ]
+      },
+      "properties": {
+        "countryName": "British Virgin Islands",
+        "areaSold": 0,
+        "areaBought": 185168.2,
+        "numberSold": 0,
+        "numberBought": 9,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          125.95024049562659,
+          -8.809894630601962
+        ]
+      },
+      "properties": {
+        "countryName": "Timor-Leste",
+        "areaSold": 203000,
+        "areaBought": 0,
+        "numberSold": 4,
+        "numberBought": 0,
+        "mostDealsWith": "Singapore"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.670259272390894,
+          64.97775882947745
+        ]
+      },
+      "properties": {
+        "countryName": "Norway",
+        "areaSold": 0,
+        "areaBought": 3850,
+        "numberSold": 0,
+        "numberBought": 2,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.23441182298881,
+          -13.128986464184024
+        ]
+      },
+      "properties": {
+        "countryName": "Malawi",
+        "areaSold": 22827,
+        "areaBought": 0,
+        "numberSold": 12,
+        "numberBought": 0,
+        "mostDealsWith": "United States of America"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.817212587250811,
+          28.687598134979325
+        ]
+      },
+      "properties": {
+        "countryName": "Morocco",
+        "areaSold": 8835,
+        "areaBought": 1180,
+        "numberSold": 7,
+        "numberBought": 3,
+        "mostDealsWith": "France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.427113900363025,
+          15.283493546654503
+        ]
+      },
+      "properties": {
+        "countryName": "Chad",
+        "areaSold": 21000,
+        "areaBought": 800,
+        "numberSold": 3,
+        "numberBought": 1,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.651768783079,
+          -12.167424062667942
+        ]
+      },
+      "properties": {
+        "countryName": "Angola",
+        "areaSold": 303901,
+        "areaBought": 10000,
+        "numberSold": 14,
+        "numberBought": 1,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.919439681764082,
+          -2.014687460047154
+        ]
+      },
+      "properties": {
+        "countryName": "Rwanda",
+        "areaSold": 17590,
+        "areaBought": 404,
+        "numberSold": 8,
+        "numberBought": 2,
+        "mostDealsWith": "United Kingdom of Great Britain and Northern Ireland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.251739122561908,
+          42.82043677302438
+        ]
+      },
+      "properties": {
+        "countryName": "Bulgaria",
+        "areaSold": 84333,
+        "areaBought": 93300,
+        "numberSold": 7,
+        "numberBought": 6,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.39620048366142,
+          47.22527332486294
+        ]
+      },
+      "properties": {
+        "countryName": "Hungary",
+        "areaSold": 0,
+        "areaBought": 16702,
+        "numberSold": 0,
+        "numberBought": 3,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.110368936161876,
+          39.42012261727978
+        ]
+      },
+      "properties": {
+        "countryName": "Greece",
+        "areaSold": 0,
+        "areaBought": 272386,
+        "numberSold": 0,
+        "numberBought": 12,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.65587551697984,
+          34.08636179565723
+        ]
+      },
+      "properties": {
+        "countryName": "Tunisia",
+        "areaSold": 3489,
+        "areaBought": 0,
+        "numberSold": 5,
+        "numberBought": 0,
+        "mostDealsWith": "Netherlands"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.375346009199205,
+          35.11700416345239
+        ]
+      },
+      "properties": {
+        "countryName": "Cyprus",
+        "areaSold": 0,
+        "areaBought": 390618,
+        "numberSold": 0,
+        "numberBought": 9,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.89651946324749,
+          33.91160170722086
+        ]
+      },
+      "properties": {
+        "countryName": "Lebanon",
+        "areaSold": 0,
+        "areaBought": 2090849,
+        "numberSold": 0,
+        "numberBought": 47,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -11.78656695731115,
+          8.561330384750587
+        ]
+      },
+      "properties": {
+        "countryName": "Sierra Leone",
+        "areaSold": 479758.7,
+        "areaBought": 0,
+        "numberSold": 25,
+        "numberBought": 0,
+        "mostDealsWith": "Mauritius"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          45.05490831965259,
+          40.17841274230679
+        ]
+      },
+      "properties": {
+        "countryName": "Armenia",
+        "areaSold": 0,
+        "areaBought": 303400,
+        "numberSold": 0,
+        "numberBought": 7,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.383273292023533,
+          49.74917370930982
+        ]
+      },
+      "properties": {
+        "countryName": "Czech Republic",
+        "areaSold": 0,
+        "areaBought": 229476,
+        "numberSold": 0,
+        "numberBought": 1,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.305714528830206,
+          9.503013199615893
+        ]
+      },
+      "properties": {
+        "countryName": "Benin",
+        "areaSold": 13000,
+        "areaBought": 0,
+        "numberSold": 5,
+        "numberBought": 0,
+        "mostDealsWith": "China"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.378670542409406,
+          56.00118817971057
+        ]
+      },
+      "properties": {
+        "countryName": "Denmark",
+        "areaSold": 0,
+        "areaBought": 51293,
+        "numberSold": 0,
+        "numberBought": 4,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.56415671066546,
+          -20.28142317475198
+        ]
+      },
+      "properties": {
+        "countryName": "Mauritius",
+        "areaSold": 500,
+        "areaBought": 47567.7,
+        "numberSold": 1,
+        "numberBought": 2,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.85779956995608,
+          -22.236609002062902
+        ]
+      },
+      "properties": {
+        "countryName": "Botswana",
+        "areaSold": 4842,
+        "areaBought": 1600,
+        "numberSold": 4,
+        "numberBought": 1,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.634592670644324,
+          40.3920509942049
+        ]
+      },
+      "properties": {
+        "countryName": "Azerbaijan",
+        "areaSold": 0,
+        "areaBought": 4000,
+        "numberSold": 0,
+        "numberBought": 1,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.391111865941348,
+          47.0725674580696
+        ]
+      },
+      "properties": {
+        "countryName": "Moldova",
+        "areaSold": 103700,
+        "areaBought": 47497,
+        "numberSold": 4,
+        "numberBought": 2,
+        "mostDealsWith": "Switzerland"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.17532903468319,
+          41.35698905438358
+        ]
+      },
+      "properties": {
+        "countryName": "Kyrgyz Republic",
+        "areaSold": 0,
+        "areaBought": 216088,
+        "numberSold": 0,
+        "numberBought": 5,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.103230338458876,
+          49.77523454542369
+        ]
+      },
+      "properties": {
+        "countryName": "Luxembourg",
+        "areaSold": 0,
+        "areaBought": 49645,
+        "numberSold": 0,
+        "numberBought": 3,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.964252054715104,
+          53.46791374543163
+        ]
+      },
+      "properties": {
+        "countryName": "Belarus",
+        "areaSold": 100000,
+        "areaBought": 33500,
+        "numberSold": 1,
+        "numberBought": 3,
+        "mostDealsWith": "China"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.916870250633806,
+          58.648108311231034
+        ]
+      },
+      "properties": {
+        "countryName": "Estonia",
+        "areaSold": 0,
+        "areaBought": 46278,
+        "numberSold": 0,
+        "numberBought": 5,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.14673625701816,
+          9.863467407406214
+        ]
+      },
+      "properties": {
+        "countryName": "Costa Rica",
+        "areaSold": 26121,
+        "areaBought": 8358,
+        "numberSold": 6,
+        "numberBought": 1,
+        "mostDealsWith": "United States of America"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.65738433454702,
+          65.01578959749911
+        ]
+      },
+      "properties": {
+        "countryName": "Finland",
+        "areaSold": 0,
+        "areaBought": 1650,
+        "numberSold": 0,
+        "numberBought": 2,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.3379805653744,
+          40.19198091470839
+        ]
+      },
+      "properties": {
+        "countryName": "Korea, Dem. People's Rep.",
+        "areaSold": 0,
+        "areaBought": 3655846.26,
+        "numberSold": 0,
+        "numberBought": 42,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.6558464719769135,
+          28.350969744889056
+        ]
+      },
+      "properties": {
+        "countryName": "Algeria",
+        "areaSold": 11000,
+        "areaBought": 481.9,
+        "numberSold": 1,
+        "numberBought": 1,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6932816211842325,
+          12.108709036312737
+        ]
+      },
+      "properties": {
+        "countryName": "Burkina Faso",
+        "areaSold": 1007796,
+        "areaBought": 481.9,
+        "numberSold": 19,
+        "numberBought": 1,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.70998923872772,
+          41.59402890143112
+        ]
+      },
+      "properties": {
+        "countryName": "North Macedonia",
+        "areaSold": 5593,
+        "areaBought": 1300,
+        "numberSold": 2,
+        "numberBought": 1,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.69035541428696,
+          -43.82765432544426
+        ]
+      },
+      "properties": {
+        "countryName": "New Zealand",
+        "areaSold": 0,
+        "areaBought": 22376,
+        "numberSold": 0,
+        "numberBought": 9,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.8548297593985,
+          41.4879065244633
+        ]
+      },
+      "properties": {
+        "countryName": "Uzbekistan",
+        "areaSold": 297185,
+        "areaBought": 298864,
+        "numberSold": 23,
+        "numberBought": 8,
+        "mostDealsWith": "Russian Federation"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.88518227845293,
+          -3.261251993278643
+        ]
+      },
+      "properties": {
+        "countryName": "Burundi",
+        "areaSold": 0,
+        "areaBought": 404,
+        "numberSold": 1,
+        "numberBought": 2,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.68273510023441,
+          17.24252476647155
+        ]
+      },
+      "properties": {
+        "countryName": "Belize",
+        "areaSold": 10832,
+        "areaBought": 0,
+        "numberSold": 3,
+        "numberBought": 0,
+        "mostDealsWith": "Guatemala"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.31219349119617,
+          15.820878515352684
+        ]
+      },
+      "properties": {
+        "countryName": "Guatemala",
+        "areaSold": 677397,
+        "areaBought": 8000,
+        "numberSold": 10,
+        "numberBought": 1,
+        "mostDealsWith": "Canada"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.1338898313567,
+          28.300920699755657
+        ]
+      },
+      "properties": {
+        "countryName": "Nepal",
+        "areaSold": 76,
+        "areaBought": 0,
+        "numberSold": 1,
+        "numberBought": 0,
+        "mostDealsWith": "China"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.43573279234468,
+          52.06848055692473
+        ]
+      },
+      "properties": {
+        "countryName": "Poland",
+        "areaSold": 0,
+        "areaBought": 7095,
+        "numberSold": 0,
+        "numberBought": 3,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          47.56311109320184,
+          29.281360965443092
+        ]
+      },
+      "properties": {
+        "countryName": "Kuwait",
+        "areaSold": 0,
+        "areaBought": 71000,
+        "numberSold": 0,
+        "numberBought": 1,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -7.933662183874006,
+          39.67529214702138
+        ]
+      },
+      "properties": {
+        "countryName": "Portugal",
+        "areaSold": 0,
+        "areaBought": 437896,
+        "numberSold": 0,
+        "numberBought": 2,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.49251679006962,
+          14.740370695750006
+        ]
+      },
+      "properties": {
+        "countryName": "Honduras",
+        "areaSold": 9971.81,
+        "areaBought": 0,
+        "numberSold": 5,
+        "numberBought": 0,
+        "mostDealsWith": "Italy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.520743419397256,
+          6.331390033944319
+        ]
+      },
+      "properties": {
+        "countryName": "Central African Republic",
+        "areaSold": 966880.54,
+        "areaBought": 0,
+        "numberSold": 7,
+        "numberBought": 0,
+        "mostDealsWith": "Congo, Rep."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.839410898545754,
+          -0.628448459921234
+        ]
+      },
+      "properties": {
+        "countryName": "Gabon",
+        "areaSold": 2501734,
+        "areaBought": 0,
+        "numberSold": 14,
+        "numberBought": 0,
+        "mostDealsWith": "Nigeria"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.25203208977878,
+          19.311231805620288
+        ]
+      },
+      "properties": {
+        "countryName": "Cayman Islands",
+        "areaSold": 0,
+        "areaBought": 331739,
+        "numberSold": 0,
+        "numberBought": 2,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.797778364631036,
+          47.631858269895794
+        ]
+      },
+      "properties": {
+        "countryName": "Austria",
+        "areaSold": 0,
+        "areaBought": 3152,
+        "numberSold": 0,
+        "numberBought": 1,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.027923472437024,
+          31.513542220043195
+        ]
+      },
+      "properties": {
+        "countryName": "Israel",
+        "areaSold": 0,
+        "areaBought": 264956,
+        "numberSold": 0,
+        "numberBought": 12,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.061082767269493,
+          41.14165894891656
+        ]
+      },
+      "properties": {
+        "countryName": "Albania",
+        "areaSold": 0,
+        "areaBought": 264956,
+        "numberSold": 0,
+        "numberBought": 12,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.8990857571109684,
+          8.660743037717811
+        ]
+      },
+      "properties": {
+        "countryName": "Togo",
+        "areaSold": 1200,
+        "areaBought": 3570,
+        "numberSold": 1,
+        "numberBought": 1,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.29505087156758,
+          42.73694835210454
+        ]
+      },
+      "properties": {
+        "countryName": "Montenegro",
+        "areaSold": 0,
+        "areaBought": 7770,
+        "numberSold": 0,
+        "numberBought": 1,
+        "mostDealsWith": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.4630326109714,
+          -1.5642721388853116
+        ]
+      },
+      "properties": {
+        "countryName": "Ecuador",
+        "areaSold": 273400,
+        "areaBought": 0,
+        "numberSold": 11,
+        "numberBought": 0,
+        "mostDealsWith": "Canada"
+      }
+    }
+  ]
+}

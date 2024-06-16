@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Local Host Port 5500</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: #000000;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        #map {
+            position: relative;
+            width: 60%;
+            height: 100vh;
+        }
+
+        #sidebar {
+            width: 30%;
+            background-color: #111;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #sidebar h2 {
+            color: white;
+        }
+
+        #sidebar p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        #sidebar .stats {
+            margin-top: 20px;
+        }
+
+        #sidebar .stat {
+            margin: 10px 0;
+        }
+
+        #sidebar .stat span {
+            font-size: 20px;
+            display: block;
+        }
+
+        #sidebar .stat label {
+            font-size: 14px;
+            color: #777;
+        }
+
+        #country-select {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        #close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div id="sidebar">
+        <h2>Country Statistics</h2>
+        <div class="stats">
+            <div class="stat">
+                <label>Total Deals as Buyer</label>
+                <span id="total-buyer-deals">0</span>
+            </div>
+            <div class="stat">
+                <label>Total Deals as Seller</label>
+                <span id="total-seller-deals">0</span>
+            </div>
+            <div class="stat">
+                <label>Total Area Bought</label>
+                <span id="total-bought-area">0 ha</span>
+            </div>
+            <div class="stat">
+                <label>Total Area Sold</label>
+                <span id="total-sold-area">0 ha</span>
+            </div>
+        </div>
+        <select id="country-select">
+            <option value="">Select a country</option>
+            <!-- Populate with country options dynamically -->
+        </select>
+    </div>
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoicmFwaGFlbC16aWVtb3dza2ktaGZnIiwiYSI6ImNsdjB3empvNTAwcGcyam1pMTloc2wzcXMifQ.DKC-hNqOY3tw4HhkJEvtsA';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            zoom: 0,
+            center: [20, 10],
+            style: 'mapbox://styles/raphael-ziemowski-hfg/clvhaybc0018h01ph0psx9jx4',
+            antialias: true,
+            projection: 'mercator'
+            // projection: 'globe'
+        });
+
+        map.on('load', function () {
+            fetch('Dataset-Connections.json')
+                .then(response => response.json())
+                .then(data => {
+                    map.addSource('line-data', {
+                        'type': 'geojson',
+                        'data': data,
+                        'lineMetrics': true
+                    });
+
+                    map.addLayer({
+                        'id': 'line-layer',
+                        'type': 'line',
+                        'source': 'line-data',
+                        'layout': {
+                            'line-join': 'round',
+                            'line-cap': 'round'
+                        },
+                        'paint': {
+                            'line-width': [
+                                'interpolate',
+                                ['linear'],
+                                ['get', 'Deal size'],
+                                0, 0,
+                                32000000, 25,
+                            ],
+                            'line-gradient': [
+                                'interpolate',
+                                ['linear'],
+                                ['line-progress'],
+                                0, "rgba(235,16,100, 0.2)",
+                                0.4, "rgba(235,16,100, 0.2)",
+                                0.6, "rgba(80, 159, 57, 0.2)",
+                                1, "rgba(80, 159, 57, 0.2)"
+                            ],
+                            'line-opacity': 1,
+                        }
+                    });
+
+                    fetch('Dataset-Countries-missing-data.geojson')
+                        // fetch('Dataset-Countries.geojson')
+                        .then(response => response.json())
+                        .then(countryData => {
+                            map.addSource('country-data', {
+                                'type': 'geojson',
+                                'data': countryData
+                            });
+
+                            map.addLayer({
+                                'id': 'target-circles',
+                                'type': 'heatmap',
+                                'source': 'country-data',
+                                'paint': {
+                                    'heatmap-radius': [
+                                        'interpolate',
+                                        ['linear'],
+                                        ['get', 'areaSold'],
+                                        0, 0,
+                                        32000000, 25,
+                                    ],
+                                    'heatmap-color': [
+                                        'interpolate',
+                                        ['linear'],
+                                        ['heatmap-density'],
+                                        0, 'rgba(235,16,100,0)',
+                                        0.05, 'rgb(235,16,100)'
+                                    ],
+                                }
+                            });
+                            map.addLayer({
+                                'id': 'origin-circles',
+                                'type': 'heatmap',
+                                'source': 'country-data',
+                                'paint': {
+                                    'heatmap-radius': [
+                                        'interpolate',
+                                        ['linear'],
+                                        ['get', 'areaBought'],
+                                        0, 0,
+                                        32000000, 25,
+                                    ],
+                                    'heatmap-color': [
+                                        'interpolate',
+                                        ['linear'],
+                                        ['heatmap-density'],
+                                        0, 'rgba(80, 159, 57,0)',
+                                        0.05, 'rgb(80, 159, 57)'
+                                    ],
+                                }
+                            });
+
+                            // const countrySelect = document.getElementById('country-select');
+                            // countryData.features.forEach(feature => {
+                            //     const option = document.createElement('option');
+                            //     option.value = feature.properties.name;
+                            //     option.textContent = feature.properties.name;
+                            //     countrySelect.appendChild(option);
+                            // });
+
+                            // countrySelect.addEventListener('change', function () {
+                            //     const selectedCountry = this.value;
+                            //     const selectedFeature = countryData.features.find(
+                            //         feature => feature.properties.name === selectedCountry
+                            //     );
+                            //     if (selectedFeature) {
+                            //         document.getElementById('total-buyer-deals').innerText = selectedFeature.properties.totalDealsAsBuyer;
+                            //         document.getElementById('total-seller-deals').innerText = selectedFeature.properties.totalDealsAsSeller;
+                            //         document.getElementById('total-bought-area').innerText = selectedFeature.properties.totalAreaBought + ' ha';
+                            //         document.getElementById('total-sold-area').innerText = selectedFeature.properties.totalAreaSold + ' ha';
+                            //     }
+                            // });
+                        });
+                })
+                .catch(error => console.error('Error loading GeoJSON data:', error));
+        });
+
+        document.getElementById('close-btn').addEventListener('click', function () {
+            document.getElementById('sidebar').style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>

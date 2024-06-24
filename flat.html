@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<a href="/index.html" , id="zurückButton">zurück</a>
+
+<head>
+    <meta charset="utf-8">
+    <title>Local Host Port 5500</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/ebm6rjj.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+
+</head>
+
+<body>
+    <div id="map"></div>
+    <div class="sidebar">
+        <h2>Country Details</h2>
+        <div class="stats">
+            <div class="stat">
+                <span>Area Sold:</span>
+                <label id="areaSoldLabel" class="value">-</label>
+            </div>
+            <div class="stat">
+                <span>Area Bought:</span>
+                <label id="areaBoughtLabel" class="value">-</label>
+            </div>
+            <div class="stat">
+                <span>Number Sold:</span>
+                <label id="numberSoldLabel" class="value">-</label>
+            </div>
+            <div class="stat">
+                <span>Number Bought:</span>
+                <label id="numberBoughtLabel" class="value">-</label>
+            </div>
+            <div class="stat">
+                <span>Most Deals With:</span>
+                <label id="mostDealsWithLabel" class="value">-</label>
+            </div>
+        </div>
+    </div>
+    ^
+    <script>
+        function changeDataDisplayFunctionVonNiklas(data) {
+            document.getElementById("areaSoldLabel").value = data.areaSold;
+            document.getElementById("areaBoughtLabel").value = data.areaBought;
+            document.getElementById("numberSoldLabel").value = data.numberSold;
+            document.getElementById("numberBoughtLabel").value = data.numberBought;
+            document.getElementById("mostDealsWithLabel").value = data.mostDealsWith;
+        }
+
+
+
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoicmFwaGFlbC16aWVtb3dza2ktaGZnIiwiYSI6ImNsdjB3empvNTAwcGcyam1pMTloc2wzcXMifQ.DKC-hNqOY3tw4HhkJEvtsA';
+        const definedCountry = 'China'; // Ändere das Land hier
+
+        const map = new mapboxgl.Map({
+            container: 'map',
+            zoom: 0,
+            center: [0, 0],
+            style: 'mapbox://styles/raphael-ziemowski-hfg/clvhaybc0018h01ph0psx9jx4',
+            antialias: true,
+            projection: 'equirectangular'
+            // projection: 'equalEarth'
+        });
+
+        function filterData(data, country) {
+            if (!country) return data;
+
+            return {
+                ...data,
+                features: data.features.filter(feature => {
+                    const targetCountry = feature.properties['Target country'] || feature.properties['countryName'];
+                    const operatingCountry = feature.properties['Operating company: Country of registration/origin'];
+                    return targetCountry === country || operatingCountry === country;
+                })
+            };
+        }
+
+        function getCountryBounds(data, country) {
+            const countryFeature = data.features.find(feature => feature.properties['countryName'] === country);
+            if (!countryFeature) return null;
+
+            const coordinates = countryFeature.geometry.coordinates;
+            if (countryFeature.geometry.type === 'Point') {
+                return new mapboxgl.LngLatBounds(coordinates, coordinates);
+            } else if (countryFeature.geometry.type === 'Polygon') {
+                const bounds = new mapboxgl.LngLatBounds(coordinates[0][0], coordinates[0][0]);
+                coordinates[0].forEach(coord => {
+                    bounds.extend(coord);
+                });
+                return bounds;
+            } else if (countryFeature.geometry.type === 'MultiPolygon') {
+                const bounds = new mapboxgl.LngLatBounds(coordinates[0][0][0], coordinates[0][0][0]);
+                coordinates.forEach(polygon => {
+                    polygon[0].forEach(coord => {
+                        bounds.extend(coord);
+                    });
+                });
+                return bounds;
+            }
+            return null;
+        }
+
+        function updateSidebar(countryData) {
+            const countryFeature = countryData.features[0]; // Annahme: Nur das erste Feature wird verwendet
+
+            if (countryFeature) {
+                const properties = countryFeature.properties;
+                document.getElementById('areaSoldLabel').textContent = properties['areaSold'] || '-';
+                document.getElementById('areaBoughtLabel').textContent = properties['areaBought'] || '-';
+                document.getElementById('numberSoldLabel').textContent = properties['numberSold'] || '-';
+                document.getElementById('numberBoughtLabel').textContent = properties['numberBought'] || '-';
+                document.getElementById('mostDealsWithLabel').textContent = properties['mostDealsWith'] || '-';
+            } else {
+                // Setze Standardwerte oder leere die Sidebar
+                document.getElementById('areaSoldLabel').textContent = '-';
+                document.getElementById('areaBoughtLabel').textContent = '-';
+                document.getElementById('numberSoldLabel').textContent = '-';
+                document.getElementById('numberBoughtLabel').textContent = '-';
+                document.getElementById('mostDealsWithLabel').textContent = '-';
+            }
+            console.log('Country Feature:', countryFeature);
+            console.log('Properties:', properties);
+
+        }
+
+
+        map.on('load', function () {
+            fetch('Dataset-Connections.json')
+                .then(response => response.json())
+                .then(lineData => {
+                    const filteredLineData = filterData(lineData, definedCountry);
+
+                    map.addSource('line-data', {
+                        'type': 'geojson',
+                        'data': filteredLineData,
+                        'lineMetrics': true
+                    });
+
+                    map.addLayer({
+                        'id': 'line-layer',
+                        'type': 'line',
+                        'source': 'line-data',
+                        'layout': {
+                            'line-join': 'round',
+                            'line-cap': 'round'
+                        },
+                        'paint': {
+                            'line-width': [
+                                'interpolate',
+                                ['linear'],
+                                ['get', 'Deal size'],
+                                0, 0,
+                                32000000, 25,
+                            ],
+                            'line-gradient': [
+                                'interpolate',
+                                ['linear'],
+                                ['line-progress'],
+                                0, "rgba(235,16,100, 0.2)",
+                                0.4, "rgba(235,16,100, 0.2)",
+                                0.6, "rgba(80, 159, 57, 0.2)",
+                                1, "rgba(80, 159, 57, 0.2)"
+                            ],
+                            'line-opacity': 1,
+                        }
+                    });
+
+                    fetch('Dataset-Countries.geojson')
+                        .then(response => response.json())
+                        .then(countryData => {
+                            const filteredCountryData = filterData(countryData, definedCountry);
+                            console.log(filteredCountryData)
+                            map.addSource('country-data', {
+                                'type': 'geojson',
+                                'data': filteredCountryData
+                            });
+
+                            changeDataDisplayFunctionVonNiklas(filteredCountryData.features[0].properties)
+
+                            map.addLayer({
+                                'id': 'target-circles',
+                                'type': 'heatmap',
+                                'source': 'country-data',
+                                'paint': {
+                                    'heatmap-radius': [
+                                        'interpolate',
+                                        ['linear'],
+                                        ['get', 'areaSold'],
+                                        0, 0,
+                                        32000000, 25,
+                                    ],
+                                    'heatmap-color': [
+                                        'interpolate',
+                                        ['linear'],
+                                        ['heatmap-density'],
+                                        0, 'rgba(235,16,100,0)',
+                                        0.05, 'rgb(235,16,100)'
+                                    ],
+                                }
+                            });
+
+                            map.addLayer({
+                                'id': 'origin-circles',
+                                'type': 'heatmap',
+                                'source': 'country-data',
+                                'paint': {
+                                    'heatmap-radius': [
+                                        'interpolate',
+                                        ['linear'],
+                                        ['get', 'areaBought'],
+                                        0, 0,
+                                        32000000, 25,
+                                    ],
+                                    'heatmap-color': [
+                                        'interpolate',
+                                        ['linear'],
+                                        ['heatmap-density'],
+                                        0, 'rgba(80, 159, 57,0)',
+                                        0.05, 'rgb(80, 159, 57)'
+                                    ],
+                                }
+                            });
+
+                            if (definedCountry) {
+                                const countryBounds = getCountryBounds(countryData, definedCountry);
+                                if (countryBounds) {
+                                    const center = countryBounds.getCenter();
+                                    map.flyTo({
+                                        center: { lng: center.lng, lat: 0 }, // Setze Breitengrad auf 0
+                                        zoom: 2,
+                                        essential: true // Animiertes Fly-to
+                                    });
+                                }
+                            } else {
+                                map.flyTo({
+                                    center: [0, 0],
+                                    zoom: 2,
+                                    essential: true // Animiertes Fly-to
+                                });
+                            }
+
+                            map.on('click', function (e) {
+                                const features = map.queryRenderedFeatures(e.point, {
+                                    layers: ['target-circles', 'origin-circles'] // Layer-Name für das Klicken
+                                });
+
+                                if (!features.length) {
+                                    return;
+                                }
+
+                                const clickedFeature = features[0];
+                                const countryName = clickedFeature.properties['countryName'];
+
+                                updateSidebar(filteredCountryData); // Sidebar aktualisieren
+                            });
+
+                            // map.addSource('Dataset-Area-closejson-bw5hs8', {
+                            //     'type': 'vector',
+                            //     'url': 'mapbox://raphael-ziemowski-hfg.42ob2ecd'
+                            // });
+                            // map.addLayer({
+                            //     'id': 'Dataset-Area-closejson-bw5hs8',
+                            //     'type': 'fill',
+                            //     'source': 'Dataset-Area-closejson-bw5hs8',
+                            //     'source-layer': 'Dataset-Area-closejson-bw5hs8',
+                            //     'layout': {},
+                            //     'paint': {
+                            //         'fill-color': '#d93164',
+                            //         'fill-opacity': 1,
+                            //     }
+                            // });
+
+                        })
+
+
+
+                        .catch(error => console.error('Error loading Country JSON data:', error));
+                })
+                .catch(error => console.error('Error loading Line JSON data:', error));
+        });
+    </script>
+
+
+</body>
+
+</html>

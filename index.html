@@ -3,128 +3,136 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Infogestaltung</title>
+    <title>Create a rotating globe</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ebm6rjj.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            background-color: #000000;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-
         #map {
-            position: relative;
-            width: 60%;
-            height: 100vh;
-        }
-
-        #sidebar {
-            width: 30%;
-            background-color: #111;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        #sidebar h2 {
-            color: white;
-        }
-
-        #sidebar p {
-            color: #aaa;
-            font-size: 14px;
-        }
-
-        #sidebar .stats {
-            margin-top: 20px;
-        }
-
-        #sidebar .stat {
-            margin: 10px 0;
-        }
-
-        #sidebar .stat span {
-            font-size: 20px;
-            display: block;
-        }
-
-        #sidebar .stat label {
-            font-size: 14px;
-            color: #777;
-        }
-
-        #country-select {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        #close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
+            opacity: 60%;
         }
     </style>
 </head>
 
 <body>
     <div id="map"></div>
-    <div id="sidebar">
-        <h2>Country Statistics</h2>
-        <div class="stats">
-            <div class="stat">
-                <label>Total Deals as Buyer</label>
-                <span id="total-buyer-deals">0</span>
-            </div>
-            <div class="stat">
-                <label>Total Deals as Seller</label>
-                <span id="total-seller-deals">0</span>
-            </div>
-            <div class="stat">
-                <label>Total Area Bought</label>
-                <span id="total-bought-area">0 ha</span>
-            </div>
-            <div class="stat">
-                <label>Total Area Sold</label>
-                <span id="total-sold-area">0 ha</span>
-            </div>
+    <div class="vertical">
+        <h1>
+            Land Grabbing
+            <br>
+            <b>Ein abgekartetes Spiel</b>
+        </h1>
+        <div class="horizontal">
+            <a href="/flat.html" class="container">
+                <h2>Verbindungskarte</h2>
+                <p>-> Sieh dir auf der Verbindungskarte an, welche Länder wo Land gekauft haben.</p>
+            </a>
+            <a href="/globe.html" class="container">
+                <h2>Globus-Ansicht</h2>
+                <p>-> Sieh dir auf dem Globus das Ausmaß von internationalen.</p>
+            </a>
+
         </div>
-        <select id="country-select">
-            <option value="">Select a country</option>
-            <!-- Populate with country options dynamically -->
-        </select>
     </div>
+    <div> </div>
+
 
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoicmFwaGFlbC16aWVtb3dza2ktaGZnIiwiYSI6ImNsdjB3empvNTAwcGcyam1pMTloc2wzcXMifQ.DKC-hNqOY3tw4HhkJEvtsA';
         const map = new mapboxgl.Map({
             container: 'map',
-            zoom: 0,
-            center: [20, 10],
             style: 'mapbox://styles/raphael-ziemowski-hfg/clvhaybc0018h01ph0psx9jx4',
-            antialias: true,
-            projection: 'mercator'
-            // projection: 'globe'
+            projection: 'globe', // Display the map as a globe, since satellite-v9 defaults to Mercator
+            zoom: 2.5,
+            center: [-90, 40],
+            interactive: false,
         });
+        const definedCountry = ''; // Ändere das Land hier
+
+
+
+
+
+        function filterData(data, country) {
+            if (!country) return data;
+
+            return {
+                ...data,
+                features: data.features.filter(feature => {
+                    const targetCountry = feature.properties['Target country'] || feature.properties['countryName'];
+                    const operatingCountry = feature.properties['Operating company: Country of registration/origin'];
+                    return targetCountry === country || operatingCountry === country;
+                })
+            };
+        }
+
+        function getCountryBounds(data, country) {
+            const countryFeature = data.features.find(feature => feature.properties['countryName'] === country);
+            if (!countryFeature) return null;
+
+            const coordinates = countryFeature.geometry.coordinates;
+            if (countryFeature.geometry.type === 'Point') {
+                return new mapboxgl.LngLatBounds(coordinates, coordinates);
+            } else if (countryFeature.geometry.type === 'Polygon') {
+                const bounds = new mapboxgl.LngLatBounds(coordinates[0][0], coordinates[0][0]);
+                coordinates[0].forEach(coord => {
+                    bounds.extend(coord);
+                });
+                return bounds;
+            } else if (countryFeature.geometry.type === 'MultiPolygon') {
+                const bounds = new mapboxgl.LngLatBounds(coordinates[0][0][0], coordinates[0][0][0]);
+                coordinates.forEach(polygon => {
+                    polygon[0].forEach(coord => {
+                        bounds.extend(coord);
+                    });
+                });
+                return bounds;
+            }
+            return null;
+        }
+
+        function updateSidebar(countryData) {
+            const countryFeature = countryData.features[0]; // Annahme: Nur das erste Feature wird verwendet
+
+            if (countryFeature) {
+                const properties = countryFeature.properties;
+                document.getElementById('areaSoldLabel').textContent = properties['areaSold'] || '-';
+                document.getElementById('areaBoughtLabel').textContent = properties['areaBought'] || '-';
+                document.getElementById('numberSoldLabel').textContent = properties['numberSold'] || '-';
+                document.getElementById('numberBoughtLabel').textContent = properties['numberBought'] || '-';
+                document.getElementById('mostDealsWithLabel').textContent = properties['mostDealsWith'] || '-';
+            } else {
+                // Setze Standardwerte oder leere die Sidebar
+                document.getElementById('areaSoldLabel').textContent = '-';
+                document.getElementById('areaBoughtLabel').textContent = '-';
+                document.getElementById('numberSoldLabel').textContent = '-';
+                document.getElementById('numberBoughtLabel').textContent = '-';
+                document.getElementById('mostDealsWithLabel').textContent = '-';
+            }
+            console.log('Country Feature:', countryFeature);
+            console.log('Properties:', properties);
+
+        }
+
 
         map.on('load', function () {
             fetch('Dataset-Connections.json')
                 .then(response => response.json())
-                .then(data => {
+                .then(lineData => {
+                    const filteredLineData = filterData(lineData, definedCountry);
+
                     map.addSource('line-data', {
                         'type': 'geojson',
-                        'data': data,
+                        'data': filteredLineData,
                         'lineMetrics': true
                     });
 
@@ -158,12 +166,13 @@
                     });
 
                     fetch('Dataset-Countries-missing-data.geojson')
-                        // fetch('Dataset-Countries.geojson')
                         .then(response => response.json())
                         .then(countryData => {
+                            const filteredCountryData = filterData(countryData, definedCountry);
+
                             map.addSource('country-data', {
                                 'type': 'geojson',
-                                'data': countryData
+                                'data': filteredCountryData
                             });
 
                             map.addLayer({
@@ -187,6 +196,7 @@
                                     ],
                                 }
                             });
+
                             map.addLayer({
                                 'id': 'origin-circles',
                                 'type': 'heatmap',
@@ -209,35 +219,94 @@
                                 }
                             });
 
-                            // const countrySelect = document.getElementById('country-select');
-                            // countryData.features.forEach(feature => {
-                            //     const option = document.createElement('option');
-                            //     option.value = feature.properties.name;
-                            //     option.textContent = feature.properties.name;
-                            //     countrySelect.appendChild(option);
-                            // });
 
-                            // countrySelect.addEventListener('change', function () {
-                            //     const selectedCountry = this.value;
-                            //     const selectedFeature = countryData.features.find(
-                            //         feature => feature.properties.name === selectedCountry
-                            //     );
-                            //     if (selectedFeature) {
-                            //         document.getElementById('total-buyer-deals').innerText = selectedFeature.properties.totalDealsAsBuyer;
-                            //         document.getElementById('total-seller-deals').innerText = selectedFeature.properties.totalDealsAsSeller;
-                            //         document.getElementById('total-bought-area').innerText = selectedFeature.properties.totalAreaBought + ' ha';
-                            //         document.getElementById('total-sold-area').innerText = selectedFeature.properties.totalAreaSold + ' ha';
-                            //     }
-                            // });
-                        });
+
+                            map.on('click', function (e) {
+                                const features = map.queryRenderedFeatures(e.point, {
+                                    layers: ['target-circles', 'origin-circles'] // Layer-Name für das Klicken
+                                });
+
+                                if (!features.length) {
+                                    return;
+                                }
+
+                                const clickedFeature = features[0];
+                                const countryName = clickedFeature.properties['countryName'];
+
+                                updateSidebar(filteredCountryData); // Sidebar aktualisieren
+                            });
+
+                        })
+                        .catch(error => console.error('Error loading Country JSON data:', error));
                 })
-                .catch(error => console.error('Error loading GeoJSON data:', error));
+                .catch(error => console.error('Error loading Line JSON data:', error));
         });
 
-        document.getElementById('close-btn').addEventListener('click', function () {
-            document.getElementById('sidebar').style.display = 'none';
+        // The following values can be changed to control rotation speed:
+
+        // At low zooms, complete a revolution every two minutes.
+        const secondsPerRevolution = 120;
+        // Above zoom level 5, do not rotate.
+        const maxSpinZoom = 5;
+        // Rotate at intermediate speeds between zoom levels 3 and 5.
+        const slowSpinZoom = 3;
+
+        let userInteracting = false;
+        let spinEnabled = true;
+
+        function spinGlobe() {
+            const zoom = map.getZoom();
+            if (spinEnabled && !userInteracting && zoom < maxSpinZoom) {
+                let distancePerSecond = 360 / secondsPerRevolution;
+                if (zoom > slowSpinZoom) {
+                    // Slow spinning at higher zooms
+                    const zoomDif =
+                        (maxSpinZoom - zoom) / (maxSpinZoom - slowSpinZoom);
+                    distancePerSecond *= zoomDif;
+                }
+                const center = map.getCenter();
+                center.lng -= distancePerSecond;
+                // Smoothly animate the map over one second.
+                // When this animation is complete, it calls a 'moveend' event.
+                map.easeTo({ center, duration: 1000, easing: (n) => n });
+            }
+        }
+
+        // Pause spinning on interaction
+        map.on('mousedown', () => {
+            userInteracting = true;
         });
+
+        // Restart spinning the globe when interaction is complete
+        map.on('mouseup', () => {
+            userInteracting = false;
+            spinGlobe();
+        });
+
+        // These events account for cases where the mouse has moved
+        // off the map, so 'mouseup' will not be fired.
+        map.on('dragend', () => {
+            userInteracting = false;
+            spinGlobe();
+        });
+        map.on('pitchend', () => {
+            userInteracting = false;
+            spinGlobe();
+        });
+        map.on('rotateend', () => {
+            userInteracting = false;
+            spinGlobe();
+        });
+
+        // When animation is complete, start spinning if there is no ongoing interaction
+        map.on('moveend', () => {
+            spinGlobe();
+        });
+
+
+        spinGlobe();
     </script>
+
 </body>
 
 </html>

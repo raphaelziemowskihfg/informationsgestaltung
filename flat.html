@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <a href="/informationsgestaltung/index.html" , id="zurückButton">zurück</a>
+  <a href="/index.html" , id="zurückButton">zurück</a>
 
   <head>
     <meta charset="utf-8" />
@@ -13,13 +13,33 @@
       rel="stylesheet" />
     <link rel="stylesheet" href="https://use.typekit.net/ebm6rjj.css" />
     <link rel="stylesheet" href="styles.css" />
+
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
   </head>
 
   <body>
-    <div id="map"></div>
+    <!-- <div id="map-placeholder"></div> -->
+    <div id="mapboxMap"></div>
     <div class="sidebar">
-      <h2>Country Details</h2>
+      <h2>"bububaba"</h2>
+
+      <label for="countrySelect"></label>
+      <select id="countrySelect">
+        <option value="">Select Country --</option>
+        <option value="Germany">Germany</option>
+        <option value="France">France</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="Italy">Italy</option>
+        <option value="Spain">Spain</option>
+        <option value="Japan">Japan</option>
+        <option value="China">China</option>
+        <option value="India">India</option>
+        <option value="Brazil">Brazil</option>
+        <option value="Australia">Australia</option>
+      </select>
+      <button onclick="getValue()">Set Variable</button>
+
       <div class="stats">
         <div class="stat">
           <span>Area Sold:</span>
@@ -41,32 +61,60 @@
           <span>Most Deals With:</span>
           <label id="mostDealsWithLabel" class="value">-</label>
         </div>
+
+        <div id="p5-container"></div>
       </div>
     </div>
-    ^
+
     <script>
+      let definedCountry = "";
+      let gdpValue;
+      let value2008;
+
+      function getValue() {
+        let dropdown = document.getElementById("countrySelect");
+        definedCountry = dropdown.value;
+        updateSidebar(definedCountry);
+      }
+
       function changeDataDisplayFunctionVonNiklas(data) {
-        document.getElementById("areaSoldLabel").value = data.areaSold;
-        document.getElementById("areaBoughtLabel").value = data.areaBought;
-        document.getElementById("numberSoldLabel").value = data.numberSold;
-        document.getElementById("numberBoughtLabel").value = data.numberBought;
-        document.getElementById("mostDealsWithLabel").value =
-          data.mostDealsWith;
+        document.getElementById("areaSoldLabel").textContent =
+          data.areaSold || "-";
+        document.getElementById("areaBoughtLabel").textContent =
+          data.areaBought || "-";
+        document.getElementById("numberSoldLabel").textContent =
+          data.numberSold || "-";
+        document.getElementById("numberBoughtLabel").textContent =
+          data.numberBought || "-";
+        document.getElementById("mostDealsWithLabel").textContent =
+          data.mostDealsWith || "-";
+      }
+
+      function setup() {
+        let canvas = createCanvas(450, 40);
+        canvas.parent("p5-container");
+        ellipseMode(CORNER);
+        background(17, 17, 17);
+      }
+
+      function draw() {
+        background(17, 17, 17);
+        fill(255);
+        text(`GDP: ` + gdpValue, 10, 20);
+        text(`2008: ` + value2008, 10, 40);
       }
 
       mapboxgl.accessToken =
         "pk.eyJ1IjoicmFwaGFlbC16aWVtb3dza2ktaGZnIiwiYSI6ImNsdjB3empvNTAwcGcyam1pMTloc2wzcXMifQ.DKC-hNqOY3tw4HhkJEvtsA";
-      const definedCountry = "China"; // Ändere das Land hier
 
-      const map = new mapboxgl.Map({
-        container: "map",
+      const mapboxMap = new mapboxgl.Map({
+        container: "mapboxMap",
         zoom: 0,
         center: [0, 0],
         style:
           "mapbox://styles/raphael-ziemowski-hfg/clvhaybc0018h01ph0psx9jx4",
         antialias: true,
         projection: "equirectangular",
-        // projection: 'equalEarth'
       });
 
       function filterData(data, country) {
@@ -120,46 +168,101 @@
         return null;
       }
 
-      function updateSidebar(countryData) {
-        const countryFeature = countryData.features[0]; // Annahme: Nur das erste Feature wird verwendet
-
-        if (countryFeature) {
-          const properties = countryFeature.properties;
-          document.getElementById("areaSoldLabel").textContent =
-            properties["areaSold"] || "-";
-          document.getElementById("areaBoughtLabel").textContent =
-            properties["areaBought"] || "-";
-          document.getElementById("numberSoldLabel").textContent =
-            properties["numberSold"] || "-";
-          document.getElementById("numberBoughtLabel").textContent =
-            properties["numberBought"] || "-";
-          document.getElementById("mostDealsWithLabel").textContent =
-            properties["mostDealsWith"] || "-";
+      function flyToTheMoon(countryData) {
+        console.log("flyToTheMoon");
+        console.log(definedCountry);
+        console.log(countryData);
+        if (definedCountry != "") {
+          const countryBounds = getCountryBounds(countryData, definedCountry);
+          if (countryBounds) {
+            const center = countryBounds.getCenter();
+            mapboxMap.flyTo({
+              center: { lng: center.lng, lat: center.lat },
+              zoom: 4,
+              essential: true,
+            });
+          }
         } else {
-          // Setze Standardwerte oder leere die Sidebar
-          document.getElementById("areaSoldLabel").textContent = "-";
-          document.getElementById("areaBoughtLabel").textContent = "-";
-          document.getElementById("numberSoldLabel").textContent = "-";
-          document.getElementById("numberBoughtLabel").textContent = "-";
-          document.getElementById("mostDealsWithLabel").textContent = "-";
+            console.log("fly to 0,0");
+          mapboxMap.flyTo({
+            center: [0, 0],
+            zoom: 2,
+            essential: true,
+          });
         }
-        console.log("Country Feature:", countryFeature);
-        console.log("Properties:", properties);
       }
 
-      map.on("load", function () {
+      function updateSidebar(country) {
+        console.log("updateSidebar");
+
+        // filter trough the data from Dataset-Countries.geojson and get the data for the selected country
+        fetch("Dataset-Countries.geojson")
+          .then((response) => response.json())
+          .then((countryData) => {
+            const filteredCountryData = filterData(countryData, country);
+            console.log("Filtered Country Data:", filteredCountryData);
+
+            // get the data for the selected country
+            const countryFeature = filteredCountryData.features[0];
+            if (countryFeature) {
+              const properties = countryFeature.properties;
+              changeDataDisplayFunctionVonNiklas(properties);
+
+              gdpValue = properties["GDP"];
+              value2008 = properties["2008"];
+            } else {
+              changeDataDisplayFunctionVonNiklas({
+                areaSold: "-",
+                areaBought: "-",
+                numberSold: "-",
+                numberBought: "-",
+                mostDealsWith: "-",
+              });
+
+              gdpValue = null;
+            }
+            console.log("Country Data:", countryData);
+            flyToTheMoon(countryData);
+          })
+          .catch((error) =>
+            console.error("Error loading Country JSON data:", error)
+          );
+        // const countryFeature = countryData.features[0];
+
+        //     if (countryFeature) {
+        //       const properties = countryFeature.properties;
+        //       changeDataDisplayFunctionVonNiklas(properties);
+
+        //       gdpValue = properties["GDP"];
+        //       value2008 = properties["2008"];
+        //     } else {
+        //       changeDataDisplayFunctionVonNiklas({
+        //         areaSold: "-",
+        //         areaBought: "-",
+        //         numberSold: "-",
+        //         numberBought: "-",
+        //         mostDealsWith: "-",
+        //       });
+
+        //       gdpValue = null;
+        //       value2008 = null;
+        //     }
+      }
+
+      mapboxMap.on("load", function () {
         fetch("Dataset-Connections.json")
           .then((response) => response.json())
           .then((lineData) => {
             const filteredLineData = filterData(lineData, definedCountry);
 
-            map.addSource("line-data", {
+            mapboxMap.addSource("line-data", {
               type: "geojson",
               data: filteredLineData,
               lineMetrics: true,
             });
 
-            map.addLayer({
+            // adding lines to the map
+            mapboxMap.addLayer({
               id: "line-layer",
               type: "line",
               source: "line-data",
@@ -174,7 +277,7 @@
                   ["get", "Deal size"],
                   0,
                   0,
-                  32000000,
+                  160000,
                   25,
                 ],
                 "line-gradient": [
@@ -201,17 +304,14 @@
                   countryData,
                   definedCountry
                 );
-                console.log(filteredCountryData);
-                map.addSource("country-data", {
+                console.log("Filtered Country Data:", filteredCountryData);
+
+                mapboxMap.addSource("country-data", {
                   type: "geojson",
                   data: filteredCountryData,
                 });
 
-                changeDataDisplayFunctionVonNiklas(
-                  filteredCountryData.features[0].properties
-                );
-
-                map.addLayer({
+                mapboxMap.addLayer({
                   id: "target-circles",
                   type: "heatmap",
                   source: "country-data",
@@ -237,7 +337,7 @@
                   },
                 });
 
-                map.addLayer({
+                mapboxMap.addLayer({
                   id: "origin-circles",
                   type: "heatmap",
                   source: "country-data",
@@ -263,59 +363,28 @@
                   },
                 });
 
-                if (definedCountry) {
-                  const countryBounds = getCountryBounds(
-                    countryData,
-                    definedCountry
-                  );
-                  if (countryBounds) {
-                    const center = countryBounds.getCenter();
-                    map.flyTo({
-                      center: { lng: center.lng, lat: 0 }, // Setze Breitengrad auf 0
-                      zoom: 2,
-                      essential: true, // Animiertes Fly-to
-                    });
-                  }
-                } else {
-                  map.flyTo({
-                    center: [0, 0],
-                    zoom: 2,
-                    essential: true, // Animiertes Fly-to
-                  });
-                }
+                flyToTheMoon();
 
-                map.on("click", function (e) {
-                  const features = map.queryRenderedFeatures(e.point, {
-                    layers: ["target-circles", "origin-circles"], // Layer-Name für das Klicken
-                  });
+                // mapboxMap.on("click", function (e) {
+                //   const features = map.queryRenderedFeatures(e.point, {
+                //     layers: ["target-circles", "origin-circles"],
+                //   });
 
-                  if (!features.length) {
-                    return;
-                  }
+                //   if (!features.length) {
+                //     return;
+                //   }
 
-                  const clickedFeature = features[0];
-                  const countryName = clickedFeature.properties["countryName"];
+                //   const clickedFeature = features[0];
+                //   const countryName = clickedFeature.properties["countryName"];
 
-                  updateSidebar(filteredCountryData); // Sidebar aktualisieren
-                });
-
-                // map.addSource('Dataset-Area-closejson-bw5hs8', {
-                //     'type': 'vector',
-                //     'url': 'mapbox://raphael-ziemowski-hfg.42ob2ecd'
-                // });
-                // map.addLayer({
-                //     'id': 'Dataset-Area-closejson-bw5hs8',
-                //     'type': 'fill',
-                //     'source': 'Dataset-Area-closejson-bw5hs8',
-                //     'source-layer': 'Dataset-Area-closejson-bw5hs8',
-                //     'layout': {},
-                //     'paint': {
-                //         'fill-color': '#d93164',
-                //         'fill-opacity': 1,
-                //     }
+                //   const countryDataForSidebar = filterData(
+                //     countryData,
+                //     countryName
+                //   );
+                //   getValue();
+                //   updateSidebar(countryDataForSidebar);
                 // });
               })
-
               .catch((error) =>
                 console.error("Error loading Country JSON data:", error)
               );

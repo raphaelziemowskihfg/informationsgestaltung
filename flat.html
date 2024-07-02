@@ -183,7 +183,7 @@
             });
           }
         } else {
-            console.log("fly to 0,0");
+          console.log("fly to 0,0");
           mapboxMap.flyTo({
             center: [0, 0],
             zoom: 2,
@@ -227,26 +227,6 @@
           .catch((error) =>
             console.error("Error loading Country JSON data:", error)
           );
-        // const countryFeature = countryData.features[0];
-
-        //     if (countryFeature) {
-        //       const properties = countryFeature.properties;
-        //       changeDataDisplayFunctionVonNiklas(properties);
-
-        //       gdpValue = properties["GDP"];
-        //       value2008 = properties["2008"];
-        //     } else {
-        //       changeDataDisplayFunctionVonNiklas({
-        //         areaSold: "-",
-        //         areaBought: "-",
-        //         numberSold: "-",
-        //         numberBought: "-",
-        //         mostDealsWith: "-",
-        //       });
-
-        //       gdpValue = null;
-        //       value2008 = null;
-        //     }
       }
 
       mapboxMap.on("load", function () {
@@ -364,26 +344,6 @@
                 });
 
                 flyToTheMoon();
-
-                // mapboxMap.on("click", function (e) {
-                //   const features = map.queryRenderedFeatures(e.point, {
-                //     layers: ["target-circles", "origin-circles"],
-                //   });
-
-                //   if (!features.length) {
-                //     return;
-                //   }
-
-                //   const clickedFeature = features[0];
-                //   const countryName = clickedFeature.properties["countryName"];
-
-                //   const countryDataForSidebar = filterData(
-                //     countryData,
-                //     countryName
-                //   );
-                //   getValue();
-                //   updateSidebar(countryDataForSidebar);
-                // });
               })
               .catch((error) =>
                 console.error("Error loading Country JSON data:", error)

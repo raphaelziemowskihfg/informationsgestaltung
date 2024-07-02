@@ -31,6 +31,13 @@ h2 {
     color: #ffffff;
 }
 
+h3 {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+}
+
 p {
     font-family: 'montserrat', sans-serif;
     font-size: 25px;
@@ -67,7 +74,9 @@ p {
 .sidebar {
     width: 40vw;
     background-color: #111111;
+    padding: 55px
 }
+
 
 #zurückButton {
     font-family: montserrat, sans-serif;
@@ -78,7 +87,8 @@ p {
 }
 
 select {
-    font-size: 20px;
+    font-family: montserrat, sans-serif;
+    font-size: 30px;
     font-weight: 800;
     background: #00000000;
     color: #ffffff;
@@ -87,5 +97,26 @@ select {
     border-left: 0px;
     border-right: 0px;
     border-top: 0px;
+}
 
+.stats {
+    font-family: montserrat, sans-serif;
+}
+
+label {
+    font-size: 34px;
+    margin-bottom: 55px;
+}
+
+.stat {
+    margin-bottom: 25px;
+}
+
+.selectHint {
+    font-size: 15px;
+    font-style: italic;
+}
+
+#displayedCountry {
+    color: #ff00ff
 }

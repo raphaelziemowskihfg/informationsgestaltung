@@ -65,12 +65,12 @@
         "2008": "35,5",
         "2015": "29,2",
         "2023": "28,7",
-        "countryName": "India",
+        "countryName": "indien",
         "areaSold": 674993,
         "areaBought": 1631759.41,
         "numberSold": 140,
         "numberBought": 20,
-        "mostDealsWith": "United Kingdom of Great Britain and Northern Ireland",
+        "mostDealsWith": "United Kingdom",
         "absolute_change_since_2015": "-0,5",
         "percent_change_since_2015": "-1,7",
         "GDP": 1198895139014.62
@@ -201,7 +201,7 @@
         "areaBought": 82405,
         "numberSold": 480,
         "numberBought": 5,
-        "mostDealsWith": "Singapore",
+        "mostDealsWith": "Singapur",
         "absolute_change_since_2015": "-4,3",
         "percent_change_since_2015": "-19,6",
         "GDP": 510228634990.598
@@ -226,7 +226,7 @@
         "areaBought": 14238455.92,
         "numberSold": 33,
         "numberBought": 237,
-        "mostDealsWith": "Singapore",
+        "mostDealsWith": "Singapur",
         "absolute_change_since_2015": "—",
         "percent_change_since_2015": "—",
         "GDP": 4594336785752.06
@@ -395,7 +395,7 @@
         "areaBought": 0,
         "numberSold": 13,
         "numberBought": 0,
-        "mostDealsWith": "Saudi Arabia",
+        "mostDealsWith": "Saudi Arabien",
         "absolute_change_since_2015": "-2,2",
         "percent_change_since_2015": "-7,6",
         "GDP": 202203748583.854
@@ -440,7 +440,7 @@
         "2008": "10,6",
         "2015": "9,1",
         "2023": "7,3",
-        "countryName": "Saudi Arabia",
+        "countryName": "Saudi Arabien",
         "areaSold": 0,
         "areaBought": 880807,
         "numberSold": 0,
@@ -504,7 +504,7 @@
         ]
       },
       "properties": {
-        "countryName": "Singapore",
+        "countryName": "Singapur",
         "areaSold": 0,
         "areaBought": 6541608,
         "numberSold": 0,
@@ -546,7 +546,7 @@
         "2008": "5,8",
         "2015": "6,3",
         "2023": "5,8",
-        "countryName": "Russian Federation",
+        "countryName": "Russland",
         "areaSold": 31879765.78,
         "areaBought": 954611,
         "numberSold": 562,
@@ -567,7 +567,7 @@
         ]
       },
       "properties": {
-        "countryName": "United Kingdom of Great Britain and Northern Ireland",
+        "countryName": "United Kingdom",
         "areaSold": 0,
         "areaBought": 10622723,
         "numberSold": 0,
@@ -589,12 +589,12 @@
         "2008": "5,5",
         "2015": "5,3",
         "2023": "6,4",
-        "countryName": "Argentina",
+        "countryName": "Argentinien",
         "areaSold": 12255292.32,
         "areaBought": 0,
         "numberSold": 116,
         "numberBought": 0,
-        "mostDealsWith": "India",
+        "mostDealsWith": "indien",
         "absolute_change_since_2015": "1,1",
         "percent_change_since_2015": "20,8",
         "GDP": 361558037110.419
@@ -676,7 +676,7 @@
         "2008": "6,8",
         "2015": "5,4",
         "2023": "6,7",
-        "countryName": "Brazil",
+        "countryName": "Brasilien",
         "areaSold": 9764035.64,
         "areaBought": 520136.88,
         "numberSold": 227,
@@ -698,7 +698,7 @@
         ]
       },
       "properties": {
-        "countryName": "United States of America",
+        "countryName": "Vereinigte Staaten",
         "areaSold": 0,
         "areaBought": 11126179.97,
         "numberSold": 0,
@@ -751,7 +751,7 @@
         "areaBought": 368454,
         "numberSold": 17,
         "numberBought": 13,
-        "mostDealsWith": "Germany",
+        "mostDealsWith": "Deutschland",
         "absolute_change_since_2015": "-0,9",
         "percent_change_since_2015": "-6,5",
         "GDP": 316131258616.309
@@ -776,7 +776,7 @@
         "areaBought": 0,
         "numberSold": 8,
         "numberBought": 0,
-        "mostDealsWith": "India",
+        "mostDealsWith": "indien",
         "absolute_change_since_2015": "-2,0",
         "percent_change_since_2015": "-17,7",
         "GDP": 3025187433.33637
@@ -845,7 +845,7 @@
         "areaBought": 18516,
         "numberSold": 55,
         "numberBought": 2,
-        "mostDealsWith": "Brazil",
+        "mostDealsWith": "Brasilien",
         "absolute_change_since_2015": "—",
         "percent_change_since_2015": "—",
         "GDP": 31119602538.8322
@@ -939,7 +939,7 @@
         "areaBought": 10554,
         "numberSold": 54,
         "numberBought": 4,
-        "mostDealsWith": "Russian Federation",
+        "mostDealsWith": "Russland",
         "absolute_change_since_2015": "—",
         "percent_change_since_2015": "—",
         "GDP": 52194221468.5007
@@ -1161,7 +1161,7 @@
         "areaBought": 410379,
         "numberSold": 15,
         "numberBought": 2,
-        "mostDealsWith": "Brazil",
+        "mostDealsWith": "Brasilien",
         "GDP": 11649857673.4436
       }
     },
@@ -1203,7 +1203,7 @@
         "areaBought": 290,
         "numberSold": 105,
         "numberBought": 1,
-        "mostDealsWith": "United States of America",
+        "mostDealsWith": "Vereinigte Staaten",
         "absolute_change_since_2015": "-0,3",
         "percent_change_since_2015": "-1,1",
         "GDP": 27066912635.2228
@@ -1224,7 +1224,7 @@
         "areaBought": 4742557,
         "numberSold": 0,
         "numberBought": 55,
-        "mostDealsWith": "Congo, Dem. Rep",
+        "mostDealsWith": "Demokratische Republik Kongo",
         "GDP": 517328087920.078
       }
     },
@@ -1247,7 +1247,7 @@
         "areaBought": 0,
         "numberSold": 113,
         "numberBought": 0,
-        "mostDealsWith": "United Kingdom of Great Britain and Northern Ireland",
+        "mostDealsWith": "United Kingdom",
         "absolute_change_since_2015": "-2,0",
         "percent_change_since_2015": "-12,7",
         "GDP": 28679383241.0729
@@ -1291,7 +1291,7 @@
         "areaBought": 26878,
         "numberSold": 36,
         "numberBought": 3,
-        "mostDealsWith": "United Kingdom of Great Britain and Northern Ireland",
+        "mostDealsWith": "United Kingdom",
         "absolute_change_since_2015": "-0,5",
         "percent_change_since_2015": "-2,2",
         "GDP": 35895153327.8497
@@ -1391,7 +1391,7 @@
         "areaBought": 0,
         "numberSold": 40,
         "numberBought": 0,
-        "mostDealsWith": "Germany",
+        "mostDealsWith": "Deutschland",
         "absolute_change_since_2015": "2,1",
         "percent_change_since_2015": "5,4",
         "GDP": 10725137723.6549
@@ -1407,7 +1407,7 @@
         ]
       },
       "properties": {
-        "countryName": "Germany",
+        "countryName": "Deutschland",
         "areaSold": 0,
         "areaBought": 926667.91,
         "numberSold": 0,
@@ -1529,7 +1529,7 @@
         "areaBought": 5000,
         "numberSold": 6,
         "numberBought": 1,
-        "mostDealsWith": "Saudi Arabia",
+        "mostDealsWith": "Saudi Arabien",
         "absolute_change_since_2015": "-1,4",
         "percent_change_since_2015": "-6,2",
         "GDP": 5206437193.80413
@@ -1668,7 +1668,7 @@
         "areaBought": 67620,
         "numberSold": 95,
         "numberBought": 1,
-        "mostDealsWith": "United States of America",
+        "mostDealsWith": "Vereinigte Staaten",
         "GDP": 27947821397.9272
       }
     },
@@ -1691,7 +1691,7 @@
         "areaBought": 179999,
         "numberSold": 69,
         "numberBought": 1,
-        "mostDealsWith": "United Kingdom of Great Britain and Northern Ireland",
+        "mostDealsWith": "United Kingdom",
         "absolute_change_since_2015": "-2,6",
         "percent_change_since_2015": "-9,4",
         "GDP": 14440404132.2047
@@ -1707,12 +1707,12 @@
         ]
       },
       "properties": {
-        "countryName": "Congo, Dem. Rep.",
+        "countryName": "Demokratische Republik Kongo",
         "areaSold": 12848256,
         "areaBought": 0,
         "numberSold": 72,
         "numberBought": 1,
-        "mostDealsWith": "United States of America",
+        "mostDealsWith": "Vereinigte Staaten",
         "GDP": 19788515590.1284
       }
     },
@@ -1779,7 +1779,7 @@
         "areaBought": 5012,
         "numberSold": 59,
         "numberBought": 1,
-        "mostDealsWith": "United Kingdom of Great Britain and Northern Ireland",
+        "mostDealsWith": "United Kingdom",
         "absolute_change_since_2015": "-4,7",
         "percent_change_since_2015": "-14,2",
         "GDP": 17910858637.9048
@@ -1804,7 +1804,7 @@
         "areaBought": 238000,
         "numberSold": 41,
         "numberBought": 2,
-        "mostDealsWith": "United States of America",
+        "mostDealsWith": "Vereinigte Staaten",
         "absolute_change_since_2015": "—",
         "percent_change_since_2015": "—",
         "GDP": 179894594475.98
@@ -1873,7 +1873,7 @@
         "areaBought": 0,
         "numberSold": 5,
         "numberBought": 0,
-        "mostDealsWith": "India",
+        "mostDealsWith": "indien",
         "absolute_change_since_2015": "-3,8",
         "percent_change_since_2015": "-22,2",
         "GDP": 40713826215.0093
@@ -1923,7 +1923,7 @@
         "areaBought": 0,
         "numberSold": 19,
         "numberBought": 0,
-        "mostDealsWith": "United States of America",
+        "mostDealsWith": "Vereinigte Staaten",
         "absolute_change_since_2015": "0,4",
         "percent_change_since_2015": "1,4",
         "GDP": 4415702800
@@ -1992,7 +1992,7 @@
         "areaBought": 0,
         "numberSold": 5,
         "numberBought": 0,
-        "mostDealsWith": "Singapore",
+        "mostDealsWith": "Singapur",
         "absolute_change_since_2015": "-6,0",
         "percent_change_since_2015": "-16,7",
         "GDP": 648523600
@@ -2036,7 +2036,7 @@
         "areaBought": 0,
         "numberSold": 12,
         "numberBought": 0,
-        "mostDealsWith": "United States of America",
+        "mostDealsWith": "Vereinigte Staaten",
         "absolute_change_since_2015": "-1,8",
         "percent_change_since_2015": "-7,9",
         "GDP": 7743617352.21427
@@ -2136,7 +2136,7 @@
         "areaBought": 404,
         "numberSold": 8,
         "numberBought": 2,
-        "mostDealsWith": "United Kingdom of Great Britain and Northern Ireland",
+        "mostDealsWith": "United Kingdom",
         "absolute_change_since_2015": "-2,9",
         "percent_change_since_2015": "-10,2",
         "GDP": 5180228095.99803
@@ -2593,7 +2593,7 @@
         "areaBought": 8358,
         "numberSold": 6,
         "numberBought": 1,
-        "mostDealsWith": "United States of America",
+        "mostDealsWith": "Vereinigte Staaten",
         "absolute_change_since_2015": "—",
         "percent_change_since_2015": "—",
         "GDP": 30801744881.9502
@@ -2750,7 +2750,7 @@
         "areaBought": 298864,
         "numberSold": 30,
         "numberBought": 8,
-        "mostDealsWith": "Russian Federation",
+        "mostDealsWith": "Russland",
         "absolute_change_since_2015": "-0,9",
         "percent_change_since_2015": "-15,3",
         "GDP": 29549438883.8338

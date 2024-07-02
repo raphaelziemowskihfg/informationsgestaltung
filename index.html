@@ -17,14 +17,14 @@
 
 
     <style>
-        #map {
+        #mapboxMap {
             opacity: 60%;
         }
     </style>
 </head>
 
 <body>
-    <div id="map"></div>
+    <div id="mapboxMap"></div>
     <div class="vertical">
         <h1>
             Land Grabbing
@@ -32,11 +32,11 @@
             <b>Ein abgekartetes Spiel</b>
         </h1>
         <div class="horizontal">
-            <a href="/informationsgestaltung/flat.html" class="container">
+            <a href="/flat.html" class="container">
                 <h2>Verbindungskarte</h2>
                 <p>-> Sieh dir auf der Verbindungskarte an, welche Länder wo Land gekauft haben.</p>
             </a>
-            <a href="/informationsgestaltung/globe.html" class="container">
+            <a href="/globe.html" class="container">
                 <h2>Globus-Ansicht</h2>
                 <p>-> Sieh dir auf dem Globus das Ausmaß von internationalen.</p>
             </a>
@@ -48,8 +48,8 @@
 
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoicmFwaGFlbC16aWVtb3dza2ktaGZnIiwiYSI6ImNsdjB3empvNTAwcGcyam1pMTloc2wzcXMifQ.DKC-hNqOY3tw4HhkJEvtsA';
-        const map = new mapboxgl.Map({
-            container: 'map',
+        const mapboxMap = new mapboxgl.Map({
+            container: 'mapboxMap',
             style: 'mapbox://styles/raphael-ziemowski-hfg/clvhaybc0018h01ph0psx9jx4',
             projection: 'globe', // Display the map as a globe, since satellite-v9 defaults to Mercator
             zoom: 2.5,
@@ -124,19 +124,19 @@
         }
 
 
-        map.on('load', function () {
+        mapboxMap.on('load', function () {
             fetch('Dataset-Connections.json')
                 .then(response => response.json())
                 .then(lineData => {
                     const filteredLineData = filterData(lineData, definedCountry);
 
-                    map.addSource('line-data', {
+                    mapboxMap.addSource('line-data', {
                         'type': 'geojson',
                         'data': filteredLineData,
                         'lineMetrics': true
                     });
 
-                    map.addLayer({
+                    mapboxMap.addLayer({
                         'id': 'line-layer',
                         'type': 'line',
                         'source': 'line-data',
@@ -165,17 +165,17 @@
                         }
                     });
 
-                    fetch('Dataset-Countries-missing-data.geojson')
+                    fetch('Dataset-Countries.geojson')
                         .then(response => response.json())
                         .then(countryData => {
                             const filteredCountryData = filterData(countryData, definedCountry);
 
-                            map.addSource('country-data', {
+                            mapboxMap.addSource('country-data', {
                                 'type': 'geojson',
                                 'data': filteredCountryData
                             });
 
-                            map.addLayer({
+                            mapboxMap.addLayer({
                                 'id': 'target-circles',
                                 'type': 'heatmap',
                                 'source': 'country-data',
@@ -197,7 +197,7 @@
                                 }
                             });
 
-                            map.addLayer({
+                            mapboxMap.addLayer({
                                 'id': 'origin-circles',
                                 'type': 'heatmap',
                                 'source': 'country-data',
@@ -221,7 +221,7 @@
 
 
 
-                            map.on('click', function (e) {
+                            mapboxMap.on('click', function (e) {
                                 const features = map.queryRenderedFeatures(e.point, {
                                     layers: ['target-circles', 'origin-circles'] // Layer-Name für das Klicken
                                 });
@@ -255,7 +255,7 @@
         let spinEnabled = true;
 
         function spinGlobe() {
-            const zoom = map.getZoom();
+            const zoom = mapboxMap.getZoom();
             if (spinEnabled && !userInteracting && zoom < maxSpinZoom) {
                 let distancePerSecond = 360 / secondsPerRevolution;
                 if (zoom > slowSpinZoom) {
@@ -264,42 +264,42 @@
                         (maxSpinZoom - zoom) / (maxSpinZoom - slowSpinZoom);
                     distancePerSecond *= zoomDif;
                 }
-                const center = map.getCenter();
+                const center = mapboxMap.getCenter();
                 center.lng -= distancePerSecond;
                 // Smoothly animate the map over one second.
                 // When this animation is complete, it calls a 'moveend' event.
-                map.easeTo({ center, duration: 1000, easing: (n) => n });
+                mapboxMap.easeTo({ center, duration: 1000, easing: (n) => n });
             }
         }
 
         // Pause spinning on interaction
-        map.on('mousedown', () => {
+        mapboxMap.on('mousedown', () => {
             userInteracting = true;
         });
 
         // Restart spinning the globe when interaction is complete
-        map.on('mouseup', () => {
+        mapboxMap.on('mouseup', () => {
             userInteracting = false;
             spinGlobe();
         });
 
         // These events account for cases where the mouse has moved
         // off the map, so 'mouseup' will not be fired.
-        map.on('dragend', () => {
+        mapboxMap.on('dragend', () => {
             userInteracting = false;
             spinGlobe();
         });
-        map.on('pitchend', () => {
+        mapboxMap.on('pitchend', () => {
             userInteracting = false;
             spinGlobe();
         });
-        map.on('rotateend', () => {
+        mapboxMap.on('rotateend', () => {
             userInteracting = false;
             spinGlobe();
         });
 
         // When animation is complete, start spinning if there is no ongoing interaction
-        map.on('moveend', () => {
+        mapboxMap.on('moveend', () => {
             spinGlobe();
         });
 

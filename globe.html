@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<a href="/informationsgestaltung/index.html" , id="zurückButton">zurück</a>
+<a href="/index.html" , id="zurückButton">zurück</a>
 
 <head>
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div id="map"></div>
+    <div id="mapboxMap"></div>
     <div class="sidebar">
         <h2>Country Details</h2>
         <div class="stats">
@@ -56,8 +56,8 @@
         mapboxgl.accessToken = 'pk.eyJ1IjoicmFwaGFlbC16aWVtb3dza2ktaGZnIiwiYSI6ImNsdjB3empvNTAwcGcyam1pMTloc2wzcXMifQ.DKC-hNqOY3tw4HhkJEvtsA';
         const definedCountry = ''; // Ändere das Land hier
 
-        const map = new mapboxgl.Map({
-            container: 'map',
+        const mapboxMap = new mapboxgl.Map({
+            container: 'mapboxMap',
             zoom: 0,
             center: [0, 0],
             style: 'mapbox://styles/raphael-ziemowski-hfg/clvhaybc0018h01ph0psx9jx4',
@@ -127,19 +127,19 @@
         }
 
 
-        map.on('load', function () {
+        mapboxMap.on('load', function () {
             fetch('Dataset-Connections.json')
                 .then(response => response.json())
                 .then(lineData => {
                     const filteredLineData = filterData(lineData, definedCountry);
 
-                    map.addSource('line-data', {
+                    mapboxMap.addSource('line-data', {
                         'type': 'geojson',
                         'data': filteredLineData,
                         'lineMetrics': true
                     });
 
-                    map.addLayer({
+                    mapboxMap.addLayer({
                         'id': 'line-layer',
                         'type': 'line',
                         'source': 'line-data',
@@ -166,8 +166,9 @@
                             ],
                             'line-opacity': {
                                 'stops': [
-                                    [3, 0.5],
-                                    [4, 0]
+                                    [1, 1],
+                                    [2, 0.2],
+                                    [3, 0]
                                 ]
                             }
                         }
@@ -178,14 +179,14 @@
                         .then(countryData => {
                             const filteredCountryData = filterData(countryData, definedCountry);
                             console.log(filteredCountryData)
-                            map.addSource('country-data', {
+                            mapboxMap.addSource('country-data', {
                                 'type': 'geojson',
                                 'data': filteredCountryData
                             });
 
                             changeDataDisplayFunctionVonNiklas(filteredCountryData.features[0].properties)
 
-                            map.addLayer({
+                            mapboxMap.addLayer({
                                 'id': 'target-circles',
                                 'type': 'heatmap',
                                 'source': 'country-data',
@@ -206,14 +207,14 @@
                                     ],
                                     'heatmap-opacity': {
                                         'stops': [
-                                            [3, 1],
-                                            [4, 0]
+                                            [2, 1],
+                                            [3, 0]
                                         ]
                                     }
                                 }
                             });
 
-                            map.addLayer({
+                            mapboxMap.addLayer({
                                 'id': 'origin-circles',
                                 'type': 'heatmap',
                                 'source': 'country-data',
@@ -234,8 +235,8 @@
                                     ],
                                     'heatmap-opacity': {
                                         'stops': [
-                                            [3, 1],
-                                            [4, 0]
+                                            [2, 1],
+                                            [3, 0]
                                         ]
                                     }
                                 }
@@ -245,22 +246,22 @@
                                 const countryBounds = getCountryBounds(countryData, definedCountry);
                                 if (countryBounds) {
                                     const center = countryBounds.getCenter();
-                                    map.flyTo({
-                                        center: { lng: center.lng, lat: 0 }, // Setze Breitengrad auf 0
-                                        zoom: 2,
+                                    mapboxMap.flyTo({
+                                        center: { lng: center.lng, lat: center.lat }, 
+                                        zoom: 4,
                                         essential: true // Animiertes Fly-to
                                     });
                                 }
                             } else {
-                                map.flyTo({
+                                mapboxMap.flyTo({
                                     center: [0, 0],
                                     zoom: 2,
                                     essential: true // Animiertes Fly-to
                                 });
                             }
 
-                            map.on('click', function (e) {
-                                const features = map.queryRenderedFeatures(e.point, {
+                            mapboxMap.on('click', function (e) {
+                                const features = mapboxMap.queryRenderedFeatures(e.point, {
                                     layers: ['target-circles', 'origin-circles'] // Layer-Name für das Klicken
                                 });
 
@@ -274,11 +275,11 @@
                                 updateSidebar(filteredCountryData); // Sidebar aktualisieren
                             });
 
-                            map.addSource('Dataset-Area-closejson-bw5hs8', {
+                            mapboxMap.addSource('Dataset-Area-closejson-bw5hs8', {
                                 'type': 'vector',
                                 'url': 'mapbox://raphael-ziemowski-hfg.42ob2ecd'
                             });
-                            map.addLayer({
+                            mapboxMap.addLayer({
                                 'id': 'Dataset-Area-closejson-bw5hs8',
                                 'type': 'fill',
                                 'source': 'Dataset-Area-closejson-bw5hs8',

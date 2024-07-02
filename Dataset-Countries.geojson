@@ -685,6 +685,7 @@
         "absolute_change_since_2015": "1,3",
         "percent_change_since_2015": "24,1",
         "GDP": 1695855083552.05
+        
       }
     },
     {
@@ -702,7 +703,8 @@
         "areaBought": 11126179.97,
         "numberSold": 0,
         "numberBought": 46,
-        "mostDealsWith": ""
+        "mostDealsWith": "",
+        "GDP": 14769857911000
       }
     },
     {

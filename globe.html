@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<a href="/informationsgestaltung/index.html" , id="zurückButton">zurück</a>
+<a href="/index.html" , id="zurückButton">zurück</a>
 
 <head>
     <meta charset="utf-8" />
@@ -29,6 +29,10 @@
                 <option value="Sudan">Sudan</option>
                 <option value="Russland">Russland</option>
                 <option value="Argentinien">Argentinien</option>
+                <option value="Tschad">Tschad</option>
+                <option value="Indonesien">Indonesien</option>
+                <option value="Philippinen">Philippinen</option>
+                <option value="Kambodscha">Kambodscha</option>
             </select>
             <p class="selectHint">Wähle hier das Land aus.</p>
         </div>
@@ -63,347 +67,359 @@
                     <label id="mostDealsWithLabel" class="value">niemanden.</label>
                 </div>
 
-                <div id="p5-container"></div>
+                <div class="stat">
+                    <span>Welthunger-Index (2008):</span>
+                    <br>
+                    <label id="whi2008Label" class="value">-</label>
+                </div>
             </div>
+
+
+            <div id="p5-container"></div>
         </div>
+    </div>
 
-        <script>
-            let definedCountry = "";
-            let gdpValue;
-            let value2008;
+    <script>
+        let definedCountry = "";
+        let gdpValue;
+        let whi2008;
 
-            function getValue() {
-                let dropdown = document.getElementById("countrySelect");
-                definedCountry = dropdown.value;
-                updateSidebar(definedCountry);
+        function getValue() {
+            let dropdown = document.getElementById("countrySelect");
+            definedCountry = dropdown.value;
+            updateSidebar(definedCountry);
+        }
+
+        function changeDataDisplayFunction(data) {
+            document.getElementById("areaSoldLabel").textContent =
+                data.areaSold || "0";
+            document.getElementById("areaBoughtLabel").textContent =
+                data.areaBought || "0";
+            document.getElementById("numberSoldLabel").textContent =
+                data.numberSold || "0";
+            document.getElementById("numberBoughtLabel").textContent =
+                data.numberBought || "0";
+            document.getElementById("mostDealsWithLabel").textContent =
+                data.mostDealsWith || "-";
+            document.getElementById("whi2008Label").textContent =
+                data.WHI2008 || "-";
+        }
+
+        function setup() {
+            let canvas = createCanvas(450, 20);
+            canvas.parent("p5-container");
+            ellipseMode(CORNER);
+            background(17, 17, 17);
+        }
+
+        function draw() {
+            background(17, 17, 17);
+            fill(217, 49, 101);
+
+            for (let i = 0; i < whi2008; i++) {
+                rect(10 * i, 0, 7, 20);
             }
+        }
 
-            function changeDataDisplayFunctionVonNiklas(data) {
-                document.getElementById("areaSoldLabel").textContent =
-                    data.areaSold || "-";
-                document.getElementById("areaBoughtLabel").textContent =
-                    data.areaBought || "-";
-                document.getElementById("numberSoldLabel").textContent =
-                    data.numberSold || "-";
-                document.getElementById("numberBoughtLabel").textContent =
-                    data.numberBought || "-";
-                document.getElementById("mostDealsWithLabel").textContent =
-                    data.mostDealsWith || "-";
-            }
+        mapboxgl.accessToken =
+            "pk.eyJ1IjoicmFwaGFlbC16aWVtb3dza2ktaGZnIiwiYSI6ImNsdjB3empvNTAwcGcyam1pMTloc2wzcXMifQ.DKC-hNqOY3tw4HhkJEvtsA";
 
-            function setup() {
-                let canvas = createCanvas(450, 40);
-                canvas.parent("p5-container");
-                ellipseMode(CORNER);
-                background(17, 17, 17);
-            }
+        const mapboxMap = new mapboxgl.Map({
+            container: "mapboxMap",
+            zoom: 0,
+            center: [0, 0],
+            style:
+                "mapbox://styles/raphael-ziemowski-hfg/clvhaybc0018h01ph0psx9jx4",
+            antialias: true,
+            projection: "globe",
+        });
 
-            function draw() {
-                background(17, 17, 17);
-                fill(255);
-                text(`GDP: ` + gdpValue, 10, 20);
-                text(`2008: ` + value2008, 10, 40);
-            }
+        function filterData(data, country) {
+            if (!country) return data;
 
-            mapboxgl.accessToken =
-                "pk.eyJ1IjoicmFwaGFlbC16aWVtb3dza2ktaGZnIiwiYSI6ImNsdjB3empvNTAwcGcyam1pMTloc2wzcXMifQ.DKC-hNqOY3tw4HhkJEvtsA";
+            return {
+                ...data,
+                features: data.features.filter((feature) => {
+                    const targetCountry =
+                        feature.properties["Target country"] ||
+                        feature.properties["countryName"];
+                    const operatingCountry =
+                        feature.properties[
+                        "Operating company: Country of registration/origin"
+                        ];
+                    return targetCountry === country || operatingCountry === country;
+                }),
+            };
+        }
 
-            const mapboxMap = new mapboxgl.Map({
-                container: "mapboxMap",
-                zoom: 0,
-                center: [0, 0],
-                style:
-                    "mapbox://styles/raphael-ziemowski-hfg/clvhaybc0018h01ph0psx9jx4",
-                antialias: true,
-                projection: "globe",
-            });
+        function getCountryBounds(data, country) {
+            const countryFeature = data.features.find(
+                (feature) => feature.properties["countryName"] === country
+            );
+            if (!countryFeature) return null;
 
-            function filterData(data, country) {
-                if (!country) return data;
-
-                return {
-                    ...data,
-                    features: data.features.filter((feature) => {
-                        const targetCountry =
-                            feature.properties["Target country"] ||
-                            feature.properties["countryName"];
-                        const operatingCountry =
-                            feature.properties[
-                            "Operating company: Country of registration/origin"
-                            ];
-                        return targetCountry === country || operatingCountry === country;
-                    }),
-                };
-            }
-
-            function getCountryBounds(data, country) {
-                const countryFeature = data.features.find(
-                    (feature) => feature.properties["countryName"] === country
+            const coordinates = countryFeature.geometry.coordinates;
+            if (countryFeature.geometry.type === "Point") {
+                return new mapboxgl.LngLatBounds(coordinates, coordinates);
+            } else if (countryFeature.geometry.type === "Polygon") {
+                const bounds = new mapboxgl.LngLatBounds(
+                    coordinates[0][0],
+                    coordinates[0][0]
                 );
-                if (!countryFeature) return null;
-
-                const coordinates = countryFeature.geometry.coordinates;
-                if (countryFeature.geometry.type === "Point") {
-                    return new mapboxgl.LngLatBounds(coordinates, coordinates);
-                } else if (countryFeature.geometry.type === "Polygon") {
-                    const bounds = new mapboxgl.LngLatBounds(
-                        coordinates[0][0],
-                        coordinates[0][0]
-                    );
-                    coordinates[0].forEach((coord) => {
+                coordinates[0].forEach((coord) => {
+                    bounds.extend(coord);
+                });
+                return bounds;
+            } else if (countryFeature.geometry.type === "MultiPolygon") {
+                const bounds = new mapboxgl.LngLatBounds(
+                    coordinates[0][0][0],
+                    coordinates[0][0][0]
+                );
+                coordinates.forEach((polygon) => {
+                    polygon[0].forEach((coord) => {
                         bounds.extend(coord);
                     });
-                    return bounds;
-                } else if (countryFeature.geometry.type === "MultiPolygon") {
-                    const bounds = new mapboxgl.LngLatBounds(
-                        coordinates[0][0][0],
-                        coordinates[0][0][0]
-                    );
-                    coordinates.forEach((polygon) => {
-                        polygon[0].forEach((coord) => {
-                            bounds.extend(coord);
-                        });
-                    });
-                    return bounds;
-                }
-                return null;
+                });
+                return bounds;
             }
+            return null;
+        }
 
-            function flyToTheMoon(countryData) {
-                console.log("flyToTheMoon");
-                if (definedCountry != "") {
-                    const countryBounds = getCountryBounds(countryData, definedCountry);
-                    if (countryBounds) {
-                        const center = countryBounds.getCenter();
-                        mapboxMap.flyTo({
-                            center: { lng: center.lng, lat: center.lat },
-                            zoom: 4,
-                            essential: true,
-                        });
-                    }
-                } else {
-                    console.log("fly to 0,0");
+        function flyToTheMoon(countryData) {
+            console.log("flyToTheMoon");
+            if (definedCountry != "") {
+                const countryBounds = getCountryBounds(countryData, definedCountry);
+                if (countryBounds) {
+                    const center = countryBounds.getCenter();
                     mapboxMap.flyTo({
-                        center: [20, 5],
-                        zoom: 4.2,
+                        center: { lng: center.lng, lat: center.lat },
+                        zoom: 4,
                         essential: true,
                     });
                 }
+            } else {
+                console.log("fly to 0,0");
+                mapboxMap.flyTo({
+                    center: [20, 5],
+                    zoom: 4.2,
+                    essential: true,
+                });
             }
+        }
 
-            function updateSidebar(country) {
-                console.log("updateSidebar");
+        function updateSidebar(country) {
+            console.log("updateSidebar");
 
-                // filter trough the data from Dataset-Countries.geojson and get the data for the selected country
-                fetch("Dataset-Countries.geojson")
-                    .then((response) => response.json())
-                    .then((countryData) => {
-                        const filteredCountryData = filterData(countryData, country);
-                        console.log("Filtered Country Data:", filteredCountryData);
+            // filter trough the data from Dataset-Countries.geojson and get the data for the selected country
+            fetch("Dataset-Countries.geojson")
+                .then((response) => response.json())
+                .then((countryData) => {
+                    const filteredCountryData = filterData(countryData, country);
+                    console.log("Filtered Country Data:", filteredCountryData);
 
-                        // get the data for the selected country
-                        const countryFeature = filteredCountryData.features[0];
-                        if (countryFeature) {
-                            const properties = countryFeature.properties;
-                            changeDataDisplayFunctionVonNiklas(properties);
+                    // get the data for the selected country
+                    const countryFeature = filteredCountryData.features[0];
+                    if (countryFeature) {
+                        const properties = countryFeature.properties;
+                        changeDataDisplayFunction(properties);
 
-                            gdpValue = properties["GDP"];
-                            value2008 = properties["2008"];
-                        } else {
-                            changeDataDisplayFunctionVonNiklas({
-                                areaSold: "-",
-                                areaBought: "-",
-                                numberSold: "-",
-                                numberBought: "-",
-                                mostDealsWith: "-",
-                            });
+                        gdpValue = properties["GDP"];
+                        whi2008 = properties["WHI2008"];
+                    } else {
+                        changeDataDisplayFunction({
+                            areaSold: "-",
+                            areaBought: "-",
+                            numberSold: "-",
+                            numberBought: "-",
+                            mostDealsWith: "-",
+                        });
 
-                            gdpValue = null;
-                        }
-                        console.log("Country Data:", countryData);
-                        updateMapboxData();
-                        flyToTheMoon(countryData);
-                    })
-                    .catch((error) =>
-                        console.error("Error loading Country JSON data:", error)
-                    );
-            }
-
-            function updateMapboxData() {
-                // update the data of the lines
-                fetch("Dataset-Connections.json")
-                    .then((response) => response.json())
-                    .then((lineData) => {
-                        const filteredLineData = filterData(lineData, definedCountry);
-
-                        // update the data of the map
-                        mapboxMap.getSource("line-data").setData(filteredLineData);
-                    })
-                    .catch((error) =>
-                        console.error("Error loading Line JSON data:", error)
-                    );
-
-                // update the data of the countries
-                fetch("Dataset-Countries.geojson")
-                    .then((response) => response.json())
-                    .then((countryData) => {
-                        const filteredCountryData = filterData(countryData, definedCountry);
-
-                        // update the data of the map
-                        mapboxMap.getSource("country-data").setData(filteredCountryData);
-                    })
-                    .catch((error) =>
-                        console.error("Error loading Country JSON data:", error)
-                    );
-            }
-
-            function setupMapboxDefaults() {
-                // adding the data for the lines
-                mapboxMap.addSource("line-data", {
-                    type: "geojson",
-                    lineMetrics: true,
-                });
-
-                // adding the data for the countries
-                mapboxMap.addSource("country-data", {
-                    type: "geojson",
-                });
-
-                // adding lines to the map
-                mapboxMap.addLayer({
-                    id: "line-layer",
-                    type: "line",
-                    source: "line-data",
-                    layout: {
-                        "line-join": "round",
-                        "line-cap": "round",
-                    },
-                    paint: {
-                        "line-width": [
-                            "interpolate",
-                            ["linear"],
-                            ["get", "Deal size"],
-                            0,
-                            0,
-                            160000,
-                            25,
-                        ],
-                        "line-gradient": [
-                            "interpolate",
-                            ["linear"],
-                            ["line-progress"],
-                            0,
-                            "rgba(235,16,100, 0.2)",
-                            0.4,
-                            "rgba(235,16,100, 0.2)",
-                            0.6,
-                            "rgba(80, 159, 57, 0.2)",
-                            1,
-                            "rgba(80, 159, 57, 0.2)",
-                        ],
-                        'line-opacity': {
-                            'stops': [
-                                [1, 1],
-                                [2, 0.2],
-                                [3, 0]
-                            ]
-                        }
-                    },
-                });
-                mapboxMap.addSource('Dataset-Area-closejson-bw5hs8', {
-                    'type': 'vector',
-                    'url': 'mapbox://raphael-ziemowski-hfg.42ob2ecd'
-                });
-
-                mapboxMap.addLayer({
-                    'id': 'Dataset-Area-closejson-bw5hs8',
-                    'type': 'fill',
-                    'source': 'Dataset-Area-closejson-bw5hs8',
-                    'source-layer': 'Dataset-Area-closejson-bw5hs8',
-                    'layout': {},
-                    'paint': {
-                        'fill-color': '#d93164',
-                        'fill-opacity': {
-                            'stops': [
-                                [2, 0.1],
-                                [3, 1]
-                            ]
-                        }
+                        gdpValue = null;
                     }
-                });
+                    console.log("Country Data:", countryData);
+                    updateMapboxData();
+                    flyToTheMoon(countryData);
+                })
+                .catch((error) =>
+                    console.error("Error loading Country JSON data:", error)
+                );
+        }
 
-                // adding circles to the map
-                mapboxMap.addLayer({
-                    id: "target-circles",
-                    type: "heatmap",
-                    source: "country-data",
-                    paint: {
-                        "heatmap-radius": [
-                            "interpolate",
-                            ["linear"],
-                            ["get", "areaSold"],
-                            0,
-                            0,
-                            32000000,
-                            25,
-                        ],
-                        "heatmap-color": [
-                            "interpolate",
-                            ["linear"],
-                            ["heatmap-density"],
-                            0,
-                            "rgba(235,16,100,0)",
-                            0.05,
-                            "rgb(235,16,100)",
-                        ],
-                        'heatmap-opacity': {
-                            'stops': [
-                                [2, 1],
-                                [3, 0]
-                            ]
-                        }
-                    },
-                });
+        function updateMapboxData() {
+            // update the data of the lines
+            fetch("Dataset-Connections.json")
+                .then((response) => response.json())
+                .then((lineData) => {
+                    const filteredLineData = filterData(lineData, definedCountry);
 
-                mapboxMap.addLayer({
-                    id: "origin-circles",
-                    type: "heatmap",
-                    source: "country-data",
-                    paint: {
-                        "heatmap-radius": [
-                            "interpolate",
-                            ["linear"],
-                            ["get", "areaBought"],
-                            0,
-                            0,
-                            32000000,
-                            25,
-                        ],
-                        "heatmap-color": [
-                            "interpolate",
-                            ["linear"],
-                            ["heatmap-density"],
-                            0,
-                            "rgba(80, 159, 57,0)",
-                            0.05,
-                            "rgb(80, 159, 57)",
-                        ],
-                        'heatmap-opacity': {
-                            'stops': [
-                                [2, 1],
-                                [3, 0]
-                            ]
-                        }
-                    },
-                });
-            }
+                    // update the data of the map
+                    mapboxMap.getSource("line-data").setData(filteredLineData);
+                })
+                .catch((error) =>
+                    console.error("Error loading Line JSON data:", error)
+                );
 
-            mapboxMap.on("load", function () {
-                setupMapboxDefaults();
-                updateMapboxData();
-                flyToTheMoon();
+            // update the data of the countries
+            fetch("Dataset-Countries.geojson")
+                .then((response) => response.json())
+                .then((countryData) => {
+                    const filteredCountryData = filterData(countryData, definedCountry);
+
+                    // update the data of the map
+                    mapboxMap.getSource("country-data").setData(filteredCountryData);
+                })
+                .catch((error) =>
+                    console.error("Error loading Country JSON data:", error)
+                );
+        }
+
+        function setupMapboxDefaults() {
+            // adding the data for the lines
+            mapboxMap.addSource("line-data", {
+                type: "geojson",
+                lineMetrics: true,
             });
-        </script>
+
+            // adding the data for the countries
+            mapboxMap.addSource("country-data", {
+                type: "geojson",
+            });
+
+            // adding lines to the map
+            mapboxMap.addLayer({
+                id: "line-layer",
+                type: "line",
+                source: "line-data",
+                layout: {
+                    "line-join": "round",
+                    "line-cap": "round",
+                },
+                paint: {
+                    "line-width": [
+                        "interpolate",
+                        ["linear"],
+                        ["get", "Deal size"],
+                        0,
+                        0,
+                        160000,
+                        25,
+                    ],
+                    "line-gradient": [
+                        "interpolate",
+                        ["linear"],
+                        ["line-progress"],
+                        0,
+                        "rgba(235,16,100, 0.2)",
+                        0.4,
+                        "rgba(235,16,100, 0.2)",
+                        0.6,
+                        "rgba(80, 159, 57, 0.2)",
+                        1,
+                        "rgba(80, 159, 57, 0.2)",
+                    ],
+                    'line-opacity': {
+                        'stops': [
+                            [1, 1],
+                            [2, 0.2],
+                            [3, 0]
+                        ]
+                    }
+                },
+            });
+            mapboxMap.addSource('Dataset-Area-closejson-bw5hs8', {
+                'type': 'vector',
+                'url': 'mapbox://raphael-ziemowski-hfg.42ob2ecd'
+            });
+
+            mapboxMap.addLayer({
+                'id': 'Dataset-Area-closejson-bw5hs8',
+                'type': 'fill',
+                'source': 'Dataset-Area-closejson-bw5hs8',
+                'source-layer': 'Dataset-Area-closejson-bw5hs8',
+                'layout': {},
+                'paint': {
+                    'fill-color': '#d93164',
+                    'fill-opacity': {
+                        'stops': [
+                            [2, 0.1],
+                            [3, 1]
+                        ]
+                    }
+                }
+            });
+
+            // adding circles to the map
+            mapboxMap.addLayer({
+                id: "target-circles",
+                type: "heatmap",
+                source: "country-data",
+                paint: {
+                    "heatmap-radius": [
+                        "interpolate",
+                        ["linear"],
+                        ["get", "areaSold"],
+                        0,
+                        0,
+                        32000000,
+                        25,
+                    ],
+                    "heatmap-color": [
+                        "interpolate",
+                        ["linear"],
+                        ["heatmap-density"],
+                        0,
+                        "rgba(235,16,100,0)",
+                        0.05,
+                        "rgb(235,16,100)",
+                    ],
+                    'heatmap-opacity': {
+                        'stops': [
+                            [2, 1],
+                            [3, 0]
+                        ]
+                    }
+                },
+            });
+
+            mapboxMap.addLayer({
+                id: "origin-circles",
+                type: "heatmap",
+                source: "country-data",
+                paint: {
+                    "heatmap-radius": [
+                        "interpolate",
+                        ["linear"],
+                        ["get", "areaBought"],
+                        0,
+                        0,
+                        32000000,
+                        25,
+                    ],
+                    "heatmap-color": [
+                        "interpolate",
+                        ["linear"],
+                        ["heatmap-density"],
+                        0,
+                        "rgba(80, 159, 57,0)",
+                        0.05,
+                        "rgb(80, 159, 57)",
+                    ],
+                    'heatmap-opacity': {
+                        'stops': [
+                            [2, 1],
+                            [3, 0]
+                        ]
+                    }
+                },
+            });
+        }
+
+        mapboxMap.on("load", function () {
+            setupMapboxDefaults();
+            updateMapboxData();
+            flyToTheMoon();
+        });
+    </script>
 </body>
 
 </html>

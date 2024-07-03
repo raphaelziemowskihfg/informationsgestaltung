@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<a href="/informationsgestaltung/index.html" , id="zurückButton">zurück</a>
+<a href="/index.html" , id="zurückButton">zurück</a>
 
 <head>
   <meta charset="utf-8" />
@@ -72,10 +72,10 @@
           <span>Brottoinlandsprodukt:</span>
           <br>
           <label id="gdpValueLabel" class="value">-</label>
-          <span> Bio. USD (2008)</span>
+          <span> Bill. USD (2008)</span>
         </div>
 
-        <div id="p5-container"></div>
+        <div id="p5-container-gdp"></div>
       </div>
     </div>
 
@@ -108,19 +108,22 @@
       }
 
       function setup() {
-        let canvas = createCanvas(450, 400);
-        canvas.parent("p5-container");
+        let canvas = createCanvas(450, 20);
+        canvas.parent("p5-container-gdp");
         ellipseMode(CENTER);
       }
 
       function draw() {
         background(17, 17, 17);
-        fill(255);
-        text(`GDP: ` + gdpValue, 0, 20);
-        text(`2008: ` + value2008, 0, 40);
         let gdpMrd = gdpValue / 1000000000000;
         gdpMrdRounded = Number(gdpMrd.toFixed(2));
-        text(`GDP: ` + gdpMrdRounded, 0, 60);
+
+        gdpSmall = gdpValue / 100000000000;
+        fill(98, 156, 70);
+
+        for (let i = 0; i < gdpSmall; i++) {
+          rect(4 * i, 0, 3, 20);
+        }
 
 
       }
